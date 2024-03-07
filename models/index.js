@@ -17,3 +17,5 @@ User.hasMany(Meditation, {
 Meditation.belongsToMany(User, {
     foreignKey: 'meditationId',
 });
+
+module.exports = { Instructor, Meditation, User };
