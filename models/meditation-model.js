@@ -15,10 +15,6 @@ Meditation.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    instructor: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     duration: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -27,6 +23,14 @@ Meditation.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    instructorId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        references: {
+            model: 'instructor',
+            key: 'id'
+        },
+      },
   },
   {
     sequelize,
