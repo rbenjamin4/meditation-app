@@ -38,6 +38,13 @@ User.init(
                 len: [8],
             },
         },
+        meditationId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'meditation',
+                key: 'id'
+            },
+        },
 },
 {
     hooks: {
