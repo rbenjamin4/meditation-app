@@ -16,13 +16,6 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate:{
-            len: [8],
-            },
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -38,17 +31,22 @@ User.init(
                 len: [8],
             },
         },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate:{
+            len: [8],
+            },
+        },
         weeklyGoal: {
             type: DataTypes.INTEGER,
             allowNull: true,
-        },
-        meditationId: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'meditation',
-                key: 'id'
-            },
-        },
+        }
+},
+{
+    sequelize,
+    underscored: true,
+    modelName: 'user',
 },
 {
     hooks: {
@@ -57,6 +55,6 @@ User.init(
             return newUser;
         },
     },
-}    
+}
 );
 module.exports = User;

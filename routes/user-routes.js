@@ -1,5 +1,5 @@
 const router = require('express').Router();
-module.exports = router;
+
 
 //log in
 router.post('/login', async (req, res) => {
@@ -73,5 +73,3 @@ router.delete('/:id', async (req, res)=> {
 
 
 module.exports = router;
-  
-  module.exports = router;
