@@ -10,6 +10,7 @@ Meditation.belongsTo(Instructor, {
 Instructor.hasMany(Meditation, {
     foreignKey: 'meditation_id',
 });
+//TODO: add foreign key to instructor table
 
 User.belongsToMany(Meditation, {
     through: UserMeditation,
