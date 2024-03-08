@@ -1,4 +1,4 @@
-const { Model } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('./config/connection');
 
@@ -37,6 +37,10 @@ User.init(
             validate:{
                 len: [8],
             },
+        },
+        weeklyGoal: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
         },
         meditationId: {
             type: DataTypes.INTEGER,
