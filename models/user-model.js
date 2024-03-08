@@ -16,13 +16,6 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate:{
-            len: [8],
-            },
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -36,6 +29,13 @@ User.init(
             allowNull: false,
             validate:{
                 len: [8],
+            },
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate:{
+            len: [8],
             },
         },
         weeklyGoal: {
