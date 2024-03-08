@@ -7,7 +7,7 @@ Meditation.belongsTo(Instructor, {
 });
 
 Instructor.hasMany(Meditation, {
-    foreignKey: 'instructorId',
+    foreignKey: 'meditationId',
 });
 
 User.hasMany(Meditation, {
