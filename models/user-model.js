@@ -51,12 +51,17 @@ User.init(
         },
 },
 {
+    sequelize,
+    underscored: true,
+    modelName: 'user',
+},
+{
     hooks: {
         async CreateBefore (newUser) {
             newUser.password = await bcrypt.hash(newUser.password, 8);
             return newUser;
         },
     },
-}    
+}
 );
 module.exports = User;
