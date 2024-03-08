@@ -1,21 +1,22 @@
 const Instructor = require('./instructor-model');
 const Meditation = require('./meditation-model');
+const UserMeditation = require('./user-meditation-model');
 const User = require('./user-model');
 
 Meditation.belongsTo(Instructor, {
-    foreignKey: 'instructorId',
+    foreignKey: 'instructor_id',
 });
 
 Instructor.hasMany(Meditation, {
-    foreignKey: 'meditationId',
+    foreignKey: 'meditation_id',
 });
 
-User.hasMany(Meditation, {
-    foreignKey: 'meditationId',
+User.belongsToMany(Meditation, {
+    through: UserMeditation,
 });
 
 Meditation.belongsToMany(User, {
-    foreignKey: 'meditationId',
+    through: UserMeditation,
 });
 
-module.exports = { Instructor, Meditation, User };
+module.exports = { Instructor, Meditation, User, UserMeditation };

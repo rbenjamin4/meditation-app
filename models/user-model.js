@@ -41,14 +41,7 @@ User.init(
         weeklyGoal: {
             type: DataTypes.INTEGER,
             allowNull: true,
-        },
-        meditationId: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'meditation',
-                key: 'id'
-            },
-        },
+        }
 },
 {
     sequelize,

@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Instructor extends Model { }
+class UserMeditation extends Model { }
 
-Instructor.init(
+UserMeditation.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,9 +11,12 @@ Instructor.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
+        userId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            }
         },
         meditationId: {
             type: DataTypes.STRING,
@@ -26,8 +29,8 @@ Instructor.init(
     {
         sequelize,
         underscored: true,
-        modelName: 'instructor',
+        modelName: 'user_meditation',
     }
 );
 
-module.exports = Instructor;
+module.exports = UserMeditation;
