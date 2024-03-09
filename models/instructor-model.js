@@ -14,13 +14,6 @@ Instructor.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-        meditationId: {
-            type: DataTypes.STRING,
-            references: {
-                model: 'meditation',
-                key: 'id',
-            }
         }
     },
     {
