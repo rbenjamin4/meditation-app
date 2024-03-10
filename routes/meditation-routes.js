@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
             include: [{ model: Instructor }],
         });
         res.status(200).json(meditationData);
+        console.log(meditationData)
     } catch (err) {
         res.status(500).json(err);
     }
