@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/audio-player.js" defer></script>
+    <title>Quiet Soul</title>
+</head>
+<body>
+
+    <div class="player-body">
+
+        <!-- <input type="range" id="volume" class="control-volume" min="0" max="2" value="1" list="gain-vals" step="0.01"
+            data-action="volume" />
+        <datalist id="gain-vals">
+            <option value="0" label="min">
+            <option value="2" label="max">
+        </datalist>
+        <label for="volume">VOL</label> -->
+
+        <h1>AUDIO TEST</h1>
+    
+        <!-- <audio src="./audio/NoOneMind-002.mp3"></audio> -->
+        <button class="play"><img src="images/play.png" alt="play button"></button>
+        <button class="pause"><img src="images/pause.png" alt="pause button"></button>
+
+        <div class="slider_container">
+            <div class="current-time">00:00</div>
+             <input type="range" min="1" max="100" value="0" class="seek-slider" onchange="seekTo()">
+             <div class="track-duration">00:00</div>
+        </div>
+    
+        <!-- <button data-playing="false" class="play-button play-circle play-vector" role="switch" aria-checked="false">
+            <span>Play/Pause</span>
+        </button> -->
+    
+    </div>
+
+</body>
+</html>

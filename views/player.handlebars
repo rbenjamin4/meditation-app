@@ -1,0 +1,17 @@
+<div class="player-body">
+
+    <input type="range" id="volume" class="control-volume" min="0" max="2" value="1" list="gain-vals" step="0.01"
+        data-action="volume" />
+    <datalist id="gain-vals">
+        <option value="0" label="min">
+        <option value="2" label="max">
+    </datalist>
+    <label for="volume">VOL</label>
+
+    <audio controls src="public/audio/NoOneMind-002.mp3"></audio>
+
+    <button data-playing="false" class="play-button play-circle play-vector" role="switch" aria-checked="false">
+        <span>Play/Pause</span>
+    </button>
+
+</div>
