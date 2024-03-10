@@ -7,12 +7,28 @@
     <title>Quiet Soul</title>
 </head>
 <body>
-
-    <h1>Quiet Soul</h1>
-
-
-    {{{body}}}
-
-
+    <header>
+        <h1></h1>
+    </header>
+    <nav>
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-syle">Logout</button>
+        {{else}}
+        <a href="/logout">Login</a>
+        {{if}}
+    </nav>
+    <main>
+    <aside>
+      <h2>Enjoy the galleries!</h2>
+    </aside>
+    {{!-- <div class="gallery"> --}}
+      {{{body}}}
+    </div>
+  </main>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
+
 </html>
