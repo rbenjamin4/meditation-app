@@ -1,0 +1,33 @@
+.play-circle {
+
+position: absolute;
+width: 42px;
+height: 42px;
+left: 239px;
+top: 385px;
+
+background: #474747;
+
+}
+
+.play-button {
+
+position: absolute;
+left: 78.83%;
+right: 14.94%;
+top: 69.6%;
+bottom: 26.59%;
+
+}
+
+.play-vector {
+
+position: absolute;
+left: 78.83%;
+right: 14.94%;
+top: 69.6%;
+bottom: 26.59%;
+
+background: #FFFFFF;
+
+}
