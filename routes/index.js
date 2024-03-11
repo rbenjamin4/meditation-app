@@ -5,6 +5,6 @@ const instructorRoutes = require('./instructor-routes');
 
 router.use('/users', userRoutes);
 router.use('/meditations', meditationRoutes);
-router.use('/instructors', instructorRoutes)
+router.use('/instructors', instructorRoutes);
 
 module.exports = router;
