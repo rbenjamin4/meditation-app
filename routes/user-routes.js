@@ -59,7 +59,7 @@ router.delete('/:id', async (req, res)=> {
             id: req.params.id,
           },  
         });
-        if (userData) {
+        if (!userData) {
             res.status(404).json({ message: 'No account found with that id'});
             return;
         }
@@ -69,7 +69,5 @@ router.delete('/:id', async (req, res)=> {
         res.status(500).json(err);
     }
     });
-
-
-
+  
 module.exports = router;
