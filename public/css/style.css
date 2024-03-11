@@ -4,11 +4,14 @@
 }
 
 body {
+    background-image: url('../images/background.webp');
+    background-size: cover;
     font-family: 'Mukta Vaani', Arial, Helvetica, sans-serif;
     color: #474747;
     font-size: 16px;
     line-height: 25px;
     padding: 35px;
+    margin-top: 20px;
 }
 
 h1 {
@@ -21,3 +24,14 @@ h2 {
     font-size: 20px;
     text-align: left;
 }
+
+.meditation {
+    border: 1px solid #E1E1E1;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* .background {
+    background-color: #F8F3F3;
+} */

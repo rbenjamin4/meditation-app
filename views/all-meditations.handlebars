@@ -1,9 +1,13 @@
 <h1>Meditation Library</h1>
 
-{{#each data}}
-<article class="meditation">
-    <h2 onclick="location.href='/meditations/{{id}}'">{{dataValues.title}}</h2>
-    <p>{{dataValues.instructor}}</p>
-    <p>{{dataValues.duration}}m</p>
-</article>
-{{/each}}
+<div class="background">
+    <section class="all-meditations">
+        {{#each data}}
+        <article class="meditation">
+            <h2 onclick="location.href='/meditations/{{id}}'">{{dataValues.title}}</h2>
+            <p>{{dataValues.instructorId}}</p>
+            <p>{{dataValues.duration}}m</p>
+        </article>
+        {{/each}}
+    </section>
+</div>
