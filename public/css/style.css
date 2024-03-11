@@ -5,7 +5,7 @@
 
 body {
     background-image: url('../images/background.webp');
-    background-size: cover;
+    background-size: fill;
     font-family: 'Mukta Vaani', Arial, Helvetica, sans-serif;
     color: #474747;
     font-size: 16px;
@@ -29,7 +29,12 @@ h2 {
     border: 1px solid #E1E1E1;
     background-color: #ffffff;
     padding: 10px;
-    margin-bottom: 20px;
+}
+
+.all-meditations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* .background {
