@@ -16,7 +16,7 @@ Meditation.init(
             allowNull: false,
         },
         duration: {
-            type: DataTypes.DATE,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         description: {

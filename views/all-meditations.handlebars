@@ -1,7 +1,8 @@
+<h1>Meditation Library</h1>
+
 {{#each data}}
     <p onclick="location.href='/meditations/{{id}}'">{{dataValues.title}}</p>
     <p>{{dataValues.instructor}}</p>
-    <p>{{dataValues.duration}}</p>
-    <p>{{dataValues.description}}</p>
+    <p>{{dataValues.duration}}m</p>
     <p>--------------------</p>
 {{/each}}
