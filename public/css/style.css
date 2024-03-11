@@ -36,7 +36,10 @@ h2 {
     gap: 20px;
 }
 
-.background-container {
+/* #background-container {
     background-color: #F8F3F3;
-    min-width:100%;
-}
+    margin-bottom: 0px;
+    min-width: 50px;
+    min-height: 50px;
+    border-top-left-radius: 30px;
+} */
