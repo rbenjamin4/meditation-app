@@ -1,8 +1,10 @@
 <h1>Meditation Library</h1>
 
 {{#each data}}
-    <p onclick="location.href='/meditations/{{id}}'">{{dataValues.title}}</p>
+    <h2 onclick="location.href='/meditations/{{id}}'">{{dataValues.title}}</h2>
     <p>{{dataValues.instructor}}</p>
     <p>{{dataValues.duration}}m</p>
     <p>--------------------</p>
 {{/each}}
+
+//TODO: make meditations articles
