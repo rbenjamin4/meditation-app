@@ -27,6 +27,14 @@ h2 {
     border: 1px solid #E1E1E1;
     background-color: #ffffff;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 81px;
+    flex-wrap: wrap;
+}
+
+.meditation h2 {
+    flex-basis: 100%;
 }
 
 .all-meditations {
