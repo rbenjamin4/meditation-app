@@ -1,6 +1,5 @@
 const router = require('express').Router();
 
-
 //log in
 router.post('/login', async (req, res) => {
     try {
@@ -49,8 +48,6 @@ router.post('/logout', (req, res) => {
       res.status(404).end();
     }
   });
-
-  
 
 router.delete('/:id', async (req, res)=> {
     try {
