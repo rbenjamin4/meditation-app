@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/public/style.css" rel="stylesheet"/>
+    <link href="/css/reset.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
     <title>Quiet Soul</title>
 </head>
+
 <body>
     <header>
-        <h1></h1>
+        <h1>Quiet Soul</h1>
     </header>
     <nav>
         <a href="/">Home</a>
@@ -16,14 +18,15 @@
         <button id="logout" class="btn-no-syle">Logout</button>
         {{else}}
         <a href="/logout">Login</a>
-        {{if}}
+        {{/if}}
     </nav>
     <main>
     <aside>
-      <h2>Enjoy the galleries!</h2>
+      <h2>Enjoy the meditations!</h2>
     </aside>
-    {{!-- <div class="gallery"> --}}
+
       {{{body}}}
+      
     </div>
   </main>
   {{#if loggedIn}}
