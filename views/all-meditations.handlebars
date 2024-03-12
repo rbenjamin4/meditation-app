@@ -3,9 +3,10 @@
     <section class="all-meditations">
         {{#each data}}
         <article class="meditation">
-            <h2 onclick="location.href='/meditations/{{id}}'">{{dataValues.title}}</h2>
-            <p>{{dataValues.instructorId}}</p>
-            <p>{{dataValues.duration}}m</p>
+            <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
+            <p>{{instructorId}}</p>
+            <p>{{duration}}m</p>
+            {{!-- <img src="../public/images/play.png"> --}}
         </article>
         {{/each}}
     </section>

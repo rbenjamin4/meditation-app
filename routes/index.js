@@ -7,4 +7,8 @@ router.use('/users', userRoutes);
 router.use('/meditations', meditationRoutes);
 router.use('/instructors', instructorRoutes);
 
+router.get('/', (req, res) => {
+    res.render('home');
+});
+
 module.exports = router;

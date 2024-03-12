@@ -5,7 +5,7 @@ const { Meditation, Instructor } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        const meditationData = await Meditation.findAll({
+        const meditationData = await Meditation.findAll({raw: true}, {
             include: [{ model: Instructor }],
         });
         res.render('all-meditations', { data: meditationData });
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const meditationData = await Meditation.findByPk(req.params.id, {
+        const meditationData = await Meditation.findByPk(req.params.id, {raw: true}, {
             include: [{ model: Instructor }],
         });
 
@@ -26,6 +26,8 @@ router.get('/:id', async (req, res) => {
         }
 
         res.render('meditation', { data: meditationData });
+        console.log(meditationData)
+
     } catch (err) {
         res.status(500).json(err);
     }
