@@ -33,7 +33,7 @@ h2 {
     flex-wrap: wrap;
 }
 
-.meditation h2 {
+.meditation h2, img {
     flex-basis: 100%;
 }
 
