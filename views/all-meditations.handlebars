@@ -1,11 +1,30 @@
-<h1>Meditation Library</h1>
+<header class="marbled-bg">
 
-    <section class="all-meditations">
-        {{#each data}}
-        <article class="meditation">
-            <h2 onclick="location.href='/meditations/{{id}}'">{{dataValues.title}}</h2>
-            <p>{{dataValues.instructorId}}</p>
-            <p>{{dataValues.duration}}m</p>
-        </article>
-        {{/each}}
-    </section>
+    <h1>Meditation Library</h1>
+
+</header>
+
+<section class="meditations-library">
+
+    {{#each data}}
+    <article class="meditation">
+        <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
+        <p>{{instructorId}}</p>
+        <p>{{duration}}m</p>
+        <button type="button">Play</button>
+    </article>
+    {{/each}}
+
+</section>
+
+
+{{!-- TODO:
+bg images for each page
+display instructor name
+display play button on list
+UserMeditation id's
+display recently played
+recent/home page
+adjust for desktop
+progress bar for recent page
+--}}

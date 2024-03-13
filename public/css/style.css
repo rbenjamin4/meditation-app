@@ -3,23 +3,26 @@
 }
 
 body {
-    background-image: url('../images/background.webp');
     font-family: 'Mukta Vaani', Arial, Helvetica, sans-serif;
+    background-color: #F8F3F3;
     color: #474747;
-    font-size: 16px;
-    line-height: 25px;
-    padding: 35px;
-    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.5625;
+}
+
+body, .marbled-bg {
+    background-image: url('../images/background.webp');
+    background-repeat: no-repeat;
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 1.25rem;
     text-align: center;
     padding-bottom: 50px;
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 1.25rem;
     text-align: left;
 }
 
@@ -27,19 +30,64 @@ h2 {
     border: 1px solid #E1E1E1;
     background-color: #ffffff;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 81px;
+    flex-wrap: wrap;
+    min-width: 266px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.all-meditations {
+.meditation h2, img {
+    flex-basis: 100%;
+}
+
+.meditations-library {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 20px;
+    position: relative;
 }
 
-/* #background-container {
-    background-color: #F8F3F3;
-    margin-bottom: 0px;
-    min-width: 50px;
-    min-height: 50px;
-    border-top-left-radius: 30px;
-} */
+.meditations-library::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/bg-convex.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+article {
+    position: relative;
+    z-index: 1;
+}
+
+.recent-meditations {
+    position: relative;
+    padding: 35px;
+}
+
+.recent-meditations::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/bg-concave.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#menu {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
