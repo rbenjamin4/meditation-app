@@ -1,85 +1,130 @@
-const {Howl, Howler} = require('howler')
+let track_name = document.querySelector('.track-name');
+let track_instructor = document.querySelector('.track-instructor');
 
-// // required for legacy browsers
-const AudioContext = window.AudioContext || window.webkitAudioContext
+let playpause_btn = document.querySelector('.playpause-track');
+let next_btn = document.querySelector('.next-track');
+let prev_btn = document.querySelector('.prev-track');
 
-let audioContext = new AudioContext()
-const audio = new Audio('../audio/NoOneMind-002.mp3', '../audio/NOM_HR.mp3', '../audio/NOM_OMDB.mp3')
-const source = audioContext.createMediaElementSource(audio)
-const playButton = document.querySelector('.play')
-const pauseButton = document.querySelector('.pause')
-let seekSlider = document.querySelector('.seek-slider')
-let currentTime = document.querySelector('.current-time');
-let trackDuration = document.querySelector('.track-duration')
+let seek_slider = document.querySelector('.seek_slider');
+let volume_slider = document.querySelector('.volume_slider');
+let curr_time = document.querySelector('.current-time');
+let total_duration = document.querySelector('.total-duration');
+let curr_track = document.createElement('audio');
 
-source.connect(audioContext.destination)
+let track_index = 0;
+let isPlaying = false;
+let isRandom = false;
+let updateTimer;
 
-playButton.addEventListener('click', () => {
-	if (audioContext.state === 'suspended'){
-		audioContext.resume()
-	}
-	audio.play()
-})
+const meditation_list = [
+    {
+        name : 'Meditation for Deep Sleep',
+        instructor : 'Todd',
+        music : './audio/Track1.mp3'
+    },
+    {
+        name : 'Morning Meditation for Clarity',
+        instructor : 'Schmuckers',
+        music : './audio/Track2.mp3'
+    },
+    {
+        name : 'Grounding Meditation',
+        instructor : 'Lucy',
+        music : './audio/Track3.mp3'
+    },
+	{
+        name : 'Midday Meditation',
+        instructor : 'Lucy',
+        music : './audio/Track4.mp3'
+    },
+	{
+        name : 'Meditation for Self-Trust',
+        instructor : 'Leonardo',
+        music : './audio/Track5.mp3'
+    }
+];
 
-pauseButton.addEventListener('click', () => {
-	audio.pause()
-})
+loadTrack(track_index);
 
-const getFile = async () => {
-	const response = await fetch(filePath)
-	const arrayBuffer = await response.arrayBuffer()
-	const audioBuffer = await audioContext.decodeAudioData(arrayBuffer)
-	return audioBuffer
+function loadTrack(track_index){
+    clearInterval(updateTimer);
+    reset();
+
+    curr_track.src = meditation_list[track_index].music;
+    curr_track.load();
+
+    track_name.textContent = meditation_list[track_index].name;
+    track_instructor.textContent = meditation_list[track_index].instructor;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);
 }
 
-const setTracks = async () => {
-	console.log('setting up tracks')
-	const audioTracks = []
-
-	for (const path of paths){
-		const track = await getFile(path)
-		audioTracks.push(track)
-	}
-	console.log('setting up tracks complete')
-	return audioTracks
+function reset(){
+    curr_time.textContent = "00:00";
+    total_duration.textContent = "00:00";
+    seek_slider.value = 0;
 }
 
-const playTrack = () => {
-	const trackSource = audioContext.createBufferSource()
-	trackSource.buffer = audioBuffer
-	trackSource.connect(audioContext.destination)
-	trackSource.start(time)
+function playpauseTrack(){
+    isPlaying ? pauseTrack() : playTrack();
 }
-
-const seekTo = () => {
-    let seekto = source * (seekSlider.value / 100);
-
+function playTrack(){
+    curr_track.play();
+    isPlaying = true;
+    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
+function pauseTrack(){
+    curr_track.pause();
+    isPlaying = false;
+    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+}
+function nextTrack(){
+    if(track_index < meditation_list.length - 1 && isRandom === false){
+        track_index += 1;
+    }else if(track_index < meditation_list.length - 1 && isRandom === true){
+        let random_index = Number.parseInt(Math.random() * meditation_list.length);
+        track_index = random_index;
+    }else{
+        track_index = 0;
+    }
+    loadTrack(track_index);
+    playTrack();
+}
+function prevTrack(){
+    if(track_index > 0){
+        track_index -= 1;
+    }else{
+        track_index = meditation_list.length -1;
+    }
+    loadTrack(track_index);
+    playTrack();
+}
+function seekTo(){
+    let seekto = curr_track.duration * (seek_slider.value / 100);
+    curr_track.currentTime = seekto;
+}
+function setVolume(){
+    curr_track.volume = volume_slider.value / 100;
+}
+function setUpdate(){
+    let seekPosition = 0;
+    if(!isNaN(curr_track.duration)){
+        seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+        seek_slider.value = seekPosition;
 
-// // get audio element and pass into audio context
-// const audioElement = document.querySelector('audio')
-// const track = audioCtx.createMediaElementSource(audioElement)
+        let currentMinutes = Math.floor(curr_track.currentTime / 60);
+        let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+        let durationMinutes = Math.floor(curr_track.duration / 60);
+        let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
 
-// const playButton = document.querySelector('.play-button')
+        if(currentSeconds < 10) {currentSeconds = "0" + currentSeconds; }
+        if(durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+        if(currentMinutes < 10) {currentMinutes = "0" + currentMinutes; }
+        if(durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
 
-// // play pause audio
-// playButton.addEventListener('click', function() {
-	
-// 	// check if context is in suspended state 
-// 	if (audioCtx.state === 'suspended') {
-// 		audioCtx.resume();
-// 	}
-	
-// 	if (this.dataset.playing === 'false') {
-// 		audioElement.play();
-// 		this.dataset.playing = 'true'
-// 	// if track is playing pause it
-// 	} else if (this.dataset.playing === 'true') {
-// 		audioElement.pause();
-// 		this.dataset.playing = 'false'
-// 	}
-	
-// }, false)
-
-
-
+        curr_time.textContent = currentMinutes + ":" + currentSeconds;
+        total_duration.textContent = durationMinutes + ":" + durationSeconds;
+    }
+}
