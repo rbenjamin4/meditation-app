@@ -1,19 +1,20 @@
-<div class='all-meditations-bg'>
+<header class="marbled-bg">
 
-<h1>Meditation Library</h1>
+    <h1>Meditation Library</h1>
 
-    <section class="all-meditations">
-        {{#each data}}
-        <article class="meditation">
-            <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
-            <p>{{instructorId}}</p>
-            <p>{{duration}}m</p>
-            {{!-- <img src="../public/images/play.png"> --}}
-        </article>
-        {{/each}}
-    </section>
+</header>
 
-</div>
+<section class="meditations-list">
+    {{#each data}}
+    <article class="meditation">
+        <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
+        <p>{{instructorId}}</p>
+        <p>{{duration}}m</p>
+        {{!-- <img src="../public/images/play.png"> --}}
+    </article>
+    {{/each}}
+</section>
+
 
 {{!-- TODO:
 bg images for each page
@@ -24,4 +25,4 @@ display recently played
 recent/home page
 adjust for desktop
 progress bar for recent page
- --}}
+--}}

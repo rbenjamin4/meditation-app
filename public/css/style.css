@@ -47,15 +47,6 @@ h2 {
     gap: 20px;
 }
 
-.all-meditations-bg {
-    background-image: url('../images/bg-convex.svg');
-    background-position: 0%;
-}
-
-.home-bg {
-    background-image: url('../images/bg-concave.svg');
-}
-
 .meditations-list {
     position: relative;
     padding: 35px;
