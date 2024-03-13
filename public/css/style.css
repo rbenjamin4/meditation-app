@@ -35,6 +35,8 @@ h2 {
     flex: 1 1 81px;
     flex-wrap: wrap;
     min-width: 266px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .meditation h2, img {
