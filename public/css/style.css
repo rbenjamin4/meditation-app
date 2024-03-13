@@ -34,22 +34,31 @@ h2 {
     justify-content: space-between;
     flex: 1 1 81px;
     flex-wrap: wrap;
+    min-width: 266px;
 }
 
 .meditation h2, img {
     flex-basis: 100%;
 }
 
-.all-meditations {
+.meditations-library {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 20px;
+    position: relative;
 }
 
-.meditations-list {
-    position: relative;
-    padding: 35px;
+.meditations-library::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/bg-convex.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 article {
@@ -57,7 +66,12 @@ article {
     z-index: 1;
 }
 
-.meditations-list::before {
+.recent-meditations {
+    position: relative;
+    padding: 35px;
+}
+
+.recent-meditations::before {
     content: "";
     position: absolute;
     top: -50px;

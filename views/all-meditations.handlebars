@@ -4,15 +4,17 @@
 
 </header>
 
-<section class="meditations-list">
+<section class="meditations-library">
+
     {{#each data}}
     <article class="meditation">
         <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
         <p>{{instructorId}}</p>
         <p>{{duration}}m</p>
-        {{!-- <img src="../public/images/play.png"> --}}
+        <button type="button">Play</button>
     </article>
     {{/each}}
+
 </section>
 
 
