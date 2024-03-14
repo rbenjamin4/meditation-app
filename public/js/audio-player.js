@@ -20,27 +20,27 @@ const meditation_list = [
     {
         name : 'Meditation for Deep Sleep',
         instructor : 'Todd',
-        music : './audio/Track1.mp3'
+        music : '../audio/Track1.mp3'
     },
     {
         name : 'Morning Meditation for Clarity',
         instructor : 'Schmuckers',
-        music : './audio/Track2.mp3'
+        music : '../audio/Track2.mp3'
     },
     {
         name : 'Grounding Meditation',
         instructor : 'Lucy',
-        music : './audio/Track3.mp3'
+        music : '../audio/Track3.mp3'
     },
 	{
         name : 'Midday Meditation',
         instructor : 'Lucy',
-        music : './audio/Track4.mp3'
+        music : '../audio/Track4.mp3'
     },
 	{
         name : 'Meditation for Self-Trust',
         instructor : 'Leonardo',
-        music : './audio/Track5.mp3'
+        music : '../audio/Track5.mp3'
     }
 ];
 
