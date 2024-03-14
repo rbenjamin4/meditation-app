@@ -9,8 +9,4 @@ router.use('/meditations', meditationRoutes);
 router.use('/instructors', instructorRoutes);
 router.use('/',htmlRoutes)
 
-router.get('/', (req, res) => {
-    res.render('home');
-});
-
 module.exports = router;
