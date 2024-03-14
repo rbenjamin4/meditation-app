@@ -1,5 +1,3 @@
-Profile.handlebars
- 
 <!DOCTYPE html>
 <html>
 <style>
@@ -47,7 +45,7 @@ div {
     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
     <label for="uName">Username</label>
-    <input type="text" id="uname" name="username" placeholder="Your username name..">
+    <input type="text" id="uname" name="username" placeholder="Your username..">
 
     <label for="email">Email</label>
     <input type="text" id="email" name="email" placeholder="Your email..">
@@ -55,13 +53,17 @@ div {
     <label for="goal">Weekly Goal</label>
     <input type="text" id="goal" name="goal" placeholder="What is your weekly goal?">
   
-   {{!-- <input type="submit" value="Submit"> --}}
+      <p>
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-save"></span> Save
+           </button>
+     </p> 
 
-     <p>Log-out icon on a button:
-                  <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-log-out"></span> Log out
-                  </button>
-                </p>              
+     <p>
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+           </button>
+     </p>              
   </form>
 </div>
 <style>
@@ -96,23 +98,23 @@ button:hover {
 }
 
 .delete {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
   background-color: #474e5d;
   padding-top: 50px;
 }
 
 .delete-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 15% auto; 
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; 
 }
 
 hr {
@@ -135,29 +137,29 @@ hr {
   cursor: pointer;
 }
 
-/* Clear floats */
+
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
 }
 
-/* Change styles for cancel button and delete button on extra small screens */
-@media screen and (max-width: 300px) {
+
+@media screen and (max-width: 100px) {
   .cancelbtn, .deletebtn {
-     width: 100%;
+     width: 50%;
   }
 }
 </style>
 <body>
 
-<h2>Delete Modal</h2>
+<h2>Delete Account</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'">Open Modal</button>
+<button onclick="document.getElementById('id01').style.display='block'">Delete</button>
 
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <form class="modal-content" action="/action_page.php">
+<div id="id01" class="delete">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="delete">×</span>
+  <form class="delete-content" action="/action_page.php">
     <div class="container">
       <h1>Delete Account</h1>
       <p>Are you sure you want to delete your account?</p>
@@ -171,13 +173,13 @@ hr {
 </div>
 
 <script>
-// Get the modal
+
 var delete = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
+
 window.onclick = function(event) {
   if (event.target == delete) {
-    modal.style.display = "none";
+    delete.style.display = "none";
   }
 }
 </style>
