@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
    res.render('login') 
 })
+
 //TODO: check if needs login
 router.get('/home', async (req, res) => {
    try {
@@ -27,6 +28,9 @@ router.get('/player/:id', (req, res) => {
    res.render('player', { id:req.params.id });
 });
 
+router.get('/profile', (req, res) => {
+   res.render('profile') 
+})
 
 
 module.exports = router;
