@@ -10,14 +10,16 @@
 
 <section class="recent-meditations">
 
+{{#each data}}
     <article class="meditation">
         <h2 onclick="location.href='/meditations/{{id}}'">title: {{title}}</h2>
         <p>instructor: {{instructorId}}</p>
         <p>duration: {{duration}}m</p>
-        <button type="button">
+        <button type="button" id="play-button" onclick="location.href='/player/{{id}}'">
             <img src="/public/images/play.png">
         </button>
     </article>
+{{/each}}
 </section>
 
 <style>
