@@ -8,11 +8,33 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta+Vaani|500,800">
     <link href="/css/style.css" rel="stylesheet" />
     <title>Quiet Soul</title>
+    <style>
 </head>
-
 <body>
-    <header>
-        {{!-- <nav>
+  
+  
+  
+.container {
+  position: right;
+  width: 20px;
+  height: 30px;
+}
+
+.link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+ </style>
+ <script src="https://kit.fontawesome.com/5d66035e35.js" crossorigin="anonymous"></script>
+ </head>
+ <body>
+  <div class="topnav">
+    
+  <a class="link" href="/profile"><i class="fa-solid fa-user"></i></a>
+  </div>
+  <header>
+    {{!-- <nav>
             <a href="/">Home</a>
             {{#if loggedIn}}
             <button id="logout" class="btn-no-syle">Logout</button>
@@ -20,17 +42,15 @@
             <a href="/logout">Login</a>
             {{/if}}
         </nav> --}}
-    </header>
-
-    <main>
-
-        {{{body}}}
-
-    </main>
+</header>
+<main>
+   {{{body}}}
+</main>
 
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
+    <script src="/js/home.js"></script>
 </body>
 
 </html>
