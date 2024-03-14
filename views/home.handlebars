@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <header class="marbled-bg">
 
     <div class="weekly-duration">
@@ -10,16 +13,16 @@
 
 <section class="recent-meditations">
 
-{{#each data}}
+    {{#each data}}
     <article class="meditation">
-        <h2 onclick="location.href='/meditations/{{id}}'">title: {{title}}</h2>
-        <p>instructor: {{instructorId}}</p>
-        <p>duration: {{duration}}m</p>
+        <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
+        <p>{{instructorId}}</p>
+        <p>{{duration}}m</p>
         <button type="button" id="play-button" onclick="location.href='/player/{{id}}'">
-            <img src="/public/images/play.png">
+            <i class="fa fa-play-circle fa-3x"></i>
         </button>
     </article>
-{{/each}}
+    {{/each}}
 </section>
 
 <style>
