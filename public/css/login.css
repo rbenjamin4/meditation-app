@@ -1,6 +1,6 @@
-body {
-    font-family: Arial, sans-serif;
-    background-image: url() ;
+body, .marbled-bg {
+    background-image: url('../images/background.webp');
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -26,13 +26,15 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="email"],
-input[type="password"],
-button {
+input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
