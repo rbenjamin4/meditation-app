@@ -45,7 +45,7 @@ div {
     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
     <label for="uName">Username</label>
-    <input type="text" id="uname" name="username" placeholder="Your username name..">
+    <input type="text" id="uname" name="username" placeholder="Your username..">
 
     <label for="email">Email</label>
     <input type="text" id="email" name="email" placeholder="Your email..">
@@ -53,13 +53,17 @@ div {
     <label for="goal">Weekly Goal</label>
     <input type="text" id="goal" name="goal" placeholder="What is your weekly goal?">
   
-   {{!-- <input type="submit" value="Submit"> --}}
+      <p>
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-save"></span> Save
+           </button>
+     </p> 
 
      <p>
-                  <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-log-out"></span> Log out
-                  </button>
-                </p>              
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+           </button>
+     </p>              
   </form>
 </div>
 <style>
@@ -154,8 +158,8 @@ hr {
 <button onclick="document.getElementById('id01').style.display='block'">Delete</button>
 
 <div id="id01" class="delete">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <form class="modal-content" action="/action_page.php">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="delete">×</span>
+  <form class="delete-content" action="/action_page.php">
     <div class="container">
       <h1>Delete Account</h1>
       <p>Are you sure you want to delete your account?</p>
@@ -175,7 +179,7 @@ var delete = document.getElementById('id01');
 
 window.onclick = function(event) {
   if (event.target == delete) {
-    modal.style.display = "none";
+    delete.style.display = "none";
   }
 }
 </style>
