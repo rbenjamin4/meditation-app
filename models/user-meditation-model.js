@@ -24,7 +24,9 @@ UserMeditation.init(
                 model: 'meditation',
                 key: 'id',
             }
-        }
+        },
+        // number of mins user has listened
+        // Date
     },
     {
         sequelize,
