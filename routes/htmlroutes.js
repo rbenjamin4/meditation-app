@@ -9,6 +9,10 @@ router.get('/login', (req, res) => {
    res.render('login') 
 })
 
+router.get('/player', (req, res) => {
+   res.render('player') 
+})
+
 //TODO: check if needs login
 router.get('/home', async (req, res) => {
    try {
