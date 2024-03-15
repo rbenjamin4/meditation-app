@@ -38,19 +38,23 @@ h2 {
 .meditation {
     border: 1px solid #E1E1E1;
     background-color: #ffffff;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
     flex: 1 1 81px;
     flex-wrap: wrap;
-    min-width: 250px;
-    max-width: 300px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
-.meditation h2, img {
+.meditation h2 {
     flex-basis: 100%;
+    flex-wrap: wrap;
+}
+
+.meditation-info p {
+    display: flex;
+    justify-content: space-between;
 }
 
 .meditations-library,
@@ -61,6 +65,8 @@ h2 {
     gap: 20px;
     position: relative;
     padding-top: 35px;
+    padding-bottom: 50px;
+    background-color: #F8F3F3;
 }
 
 .meditations-library::before {
@@ -78,6 +84,7 @@ h2 {
 article {
     position: relative;
     z-index: 1;
+    min-width: 266px;
 }
 
 /* .recent-meditations {
