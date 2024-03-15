@@ -28,8 +28,16 @@ router.get('/home', async (req, res) => {
 //get db info & pass
 //if time, when you click play btn it updates list
 
-router.get('/player/:id', (req, res) => {
-   res.render('player', { id:req.params.id });
+router.get('/player/:id', async (req, res) => {
+   try {
+      const meditationData = await Meditation.findByPk(req.params.id, {
+          include: [{ model: Instructor }],
+      });
+      console.log(meditationData)
+      res.render('player', { id:req.params.id, data });
+  } catch (err) {
+      res.status(500).json(err);
+  }
 });
 
 router.get('/profile', (req, res) => {
