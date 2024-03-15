@@ -1,3 +1,5 @@
+// let Meditation = []
+
 let track_name = document.querySelector('.track-name');
 let track_instructor = document.querySelector('.track-instructor');
 
@@ -11,36 +13,36 @@ let curr_time = document.querySelector('.current-time');
 let total_duration = document.querySelector('.total-duration');
 let curr_track = document.createElement('audio');
 
-let track_index = 0;
+let track_index
 let isPlaying = false;
 let isRandom = false;
 let updateTimer;
 
-const meditation_list = [
+const Meditation = [
     {
         name : 'Meditation for Deep Sleep',
         instructor : 'Todd',
-        music : '../audio/Track1.mp3'
+        fileName : '../audio/Track1.mp3'
     },
     {
         name : 'Morning Meditation for Clarity',
         instructor : 'Schmuckers',
-        music : '../audio/Track2.mp3'
+        fileName : '../audio/Track2.mp3'
     },
     {
         name : 'Grounding Meditation',
         instructor : 'Lucy',
-        music : '../audio/Track3.mp3'
+        fileName : '../audio/Track3.mp3'
     },
 	{
         name : 'Midday Meditation',
         instructor : 'Lucy',
-        music : '../audio/Track4.mp3'
+        fileName : '../audio/Track4.mp3'
     },
 	{
         name : 'Meditation for Self-Trust',
         instructor : 'Leonardo',
-        music : '../audio/Track5.mp3'
+        fileName : '../audio/Track5.mp3'
     }
 ];
 
@@ -50,11 +52,17 @@ function loadTrack(track_index){
     clearInterval(updateTimer);
     reset();
 
-    curr_track.src = meditation_list[track_index].music;
+	let buttonContainer = document.querySelector('#buttons-container')
+
+    curr_track.src = buttonContainer.getAttribute('data-file-path');
+	console.log(buttonContainer)
+	console.log(buttonContainer.getAttribute('data-file-path'))
+	console.log('something')
+	console.log(curr_track.src)
     curr_track.load();
 
-    track_name.textContent = meditation_list[track_index].name;
-    track_instructor.textContent = meditation_list[track_index].instructor;
+    // track_name.textContent = ;
+    // track_instructor.textContent = 'meditation instructor';
 
     updateTimer = setInterval(setUpdate, 1000);
 
@@ -81,10 +89,10 @@ function pauseTrack(){
     playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
 }
 function nextTrack(){
-    if(track_index < meditation_list.length - 1 && isRandom === false){
+    if(track_index < Meditation.length - 1 && isRandom === false){
         track_index += 1;
-    }else if(track_index < meditation_list.length - 1 && isRandom === true){
-        let random_index = Number.parseInt(Math.random() * meditation_list.length);
+    }else if(track_index < Meditation.length - 1 && isRandom === true){
+        let random_index = Number.parseInt(Math.random() * Meditation.length);
         track_index = random_index;
     }else{
         track_index = 0;
@@ -96,7 +104,7 @@ function prevTrack(){
     if(track_index > 0){
         track_index -= 1;
     }else{
-        track_index = meditation_list.length -1;
+        track_index = Meditation.length -1;
     }
     loadTrack(track_index);
     playTrack();

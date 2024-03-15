@@ -31,6 +31,10 @@ Meditation.init(
                 key: 'id'
             },
         },
+        fileName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     },
     {
         sequelize,
