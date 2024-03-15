@@ -49,6 +49,14 @@ h2 {
 
 .meditation-info h2 {
     flex-basis: 100%;
+    flex-wrap: wrap;
+}
+
+.meditation-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 235px;
 }
 
 .meditation-info {
