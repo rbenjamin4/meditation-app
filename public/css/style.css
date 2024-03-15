@@ -35,7 +35,8 @@ h2 {
     justify-content: space-between;
     flex: 1 1 81px;
     flex-wrap: wrap;
-    min-width: 266px;
+    min-width: 250px;
+    max-width: 300px;
     margin-right: 10px;
     margin-left: 10px;
 }
@@ -44,12 +45,14 @@ h2 {
     flex-basis: 100%;
 }
 
-.meditations-library {
+.meditations-library,
+.recent-meditations {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 20px;
     position: relative;
+    padding-top: 35px;
 }
 
 .meditations-library::before {
@@ -69,10 +72,10 @@ article {
     z-index: 1;
 }
 
-.recent-meditations {
+/* .recent-meditations {
     position: relative;
     padding: 35px;
-}
+} */
 
 .recent-meditations::before {
     content: "";
@@ -91,6 +94,8 @@ article {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+    background-color: none;
+    border: none;
 }
 
 .play-button {
