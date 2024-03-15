@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <header class="marbled-bg">
 
     <h1>Meditation Library</h1>
@@ -11,7 +14,9 @@
         <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
         <p>{{instructorId}}</p>
         <p>{{duration}}m</p>
-        <button type="button">Play</button>
+        <button type="button" class="play-button" onclick="location.href='/player/{{id}}'">
+            <i class="fa fa-play-circle fa-3x"></i>
+        </button>
     </article>
     {{/each}}
 

@@ -18,7 +18,8 @@ body, .marbled-bg {
 h1 {
     font-size: 1.25rem;
     text-align: center;
-    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 85px;
 }
 
 h2 {
@@ -90,4 +91,9 @@ article {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+}
+
+.play-button {
+    background-color: #fff;
+    border: none;
 }
