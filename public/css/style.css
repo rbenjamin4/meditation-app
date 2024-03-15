@@ -18,8 +18,16 @@ body, .marbled-bg {
 h1 {
     font-size: 1.25rem;
     text-align: center;
+}
+
+.library-title {
     padding-top: 40px;
     padding-bottom: 85px;
+}
+
+.weekly-duration {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 h2 {
@@ -94,11 +102,11 @@ article {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    background-color: none;
+    background-color: transparent;
     border: none;
 }
 
 .play-button {
-    background-color: #fff;
+    background-color: transparent;
     border: none;
 }
