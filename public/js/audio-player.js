@@ -18,34 +18,6 @@ let isPlaying = false;
 let isRandom = false;
 let updateTimer;
 
-// const Meditation = [
-//     {
-//         name : 'Meditation for Deep Sleep',
-//         instructor : 'Todd',
-//         fileName : '../audio/Track1.mp3'
-//     },
-//     {
-//         name : 'Morning Meditation for Clarity',
-//         instructor : 'Schmuckers',
-//         fileName : '../audio/Track2.mp3'
-//     },
-//     {
-//         name : 'Grounding Meditation',
-//         instructor : 'Lucy',
-//         fileName : '../audio/Track3.mp3'
-//     },
-// 	{
-//         name : 'Midday Meditation',
-//         instructor : 'Lucy',
-//         fileName : '../audio/Track4.mp3'
-//     },
-// 	{
-//         name : 'Meditation for Self-Trust',
-//         instructor : 'Leonardo',
-//         fileName : '../audio/Track5.mp3'
-//     }
-// ];
-
 loadTrack(track_index);
 
 function loadTrack(track_index){
@@ -69,13 +41,9 @@ function playpauseTrack(){
     isPlaying ? pauseTrack() : playTrack();
 }
 function playTrack(){
-	let playButtonId = document.querySelector('#play-button')
+    let playButtonId = document.querySelector('#play-button')
 
     curr_track.src = playButtonId.getAttribute('data-file-path');
-	console.log(playButtonId)
-	console.log(playButtonId.getAttribute('data-file-path'))
-	console.log('something')
-	console.log(curr_track.src)
     curr_track.play();
     isPlaying = true;
     playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
@@ -84,8 +52,13 @@ function pauseTrack(){
     curr_track.pause();
     isPlaying = false;
     playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+    console.log(curr_time)
 }
 function nextTrack(){
+    let next_track = document.querySelector('#next-track-id')
+    let track_index = next_track.getAttribute('data-file-path')
+    console.log(track_index)
+
     if(track_index < Meditation.length - 1 && isRandom === false){
         track_index += 1;
     }else if(track_index < Meditation.length - 1 && isRandom === true){
@@ -133,3 +106,4 @@ function setUpdate(){
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
     }
 }
+

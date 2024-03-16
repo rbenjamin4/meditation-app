@@ -40,13 +40,13 @@ router.get('/player/:id', async (req, res) => {
   }
 });
 
-router.get('/player', async (req, res) => {
+router.get('/trackList', async (req, res) => {
    try {
-      const trackListData = await Meditation.findAll({raw: true}, {
-          include: [{ model: Meditation }],
+      const trackListData = await Meditation.findAll({
+          attributes: ['fileName']
       });
       console.log(trackListData)
-      res.render('player', { data: trackListData });
+      res.status(200).json(trackListData)
   } catch (err) {
       res.status(500).json(err);
   }
