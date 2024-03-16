@@ -67,6 +67,23 @@ router.delete('/:id', async (req, res)=> {
         res.status(500).json(err);
       }
     });
+
+    //save user info
+
+    router.put('/profile/:id', (req, res) => {
+      const userInfo = req.params.id;
+      const updateInfo = req.body; 
+  
+      
+      User.update(updateInfo, { where: { id: userId } })
+          .then(() => {
+              res.status(200).json({ message: 'User Info successfully' });
+          })
+          .catch((error) => {
+              res.status(500).json({ error: 'Error updating user info' });
+          });
+  });
+
     
     router.put('/updatelistentime', async (req, res) => {
       let userId = 1;
@@ -102,9 +119,6 @@ router.delete('/:id', async (req, res)=> {
         console.log('Reading user failed:', dbUserData);
       }
 
-
-
-
       try {
         console.log('SAving User...', req.body.timeListened)
         const meditationData = await User.increment(
@@ -126,8 +140,6 @@ router.delete('/:id', async (req, res)=> {
 })
 
 
-
-
 function getWeekNumber(d) {
   // Copy date so don't modify original
   d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
@@ -142,11 +154,7 @@ function getWeekNumber(d) {
   return weekNo;
 }
 
-
-
 // var currentWeekNumber = getWeekNumber(new Date());
 // console.log(currentWeekNumber); // This will log the current week number
-
-
 
 module.exports = router;
