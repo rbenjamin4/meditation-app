@@ -66,5 +66,21 @@ router.delete('/:id', async (req, res)=> {
         res.status(500).json(err);
     }
     });
+
+    //save user info
+
+    router.put('/profile/:id', (req, res) => {
+      const userInfo = req.params.id;
+      const updateInfo = req.body; 
+  
+      
+      User.update(updateInfo, { where: { id: userId } })
+          .then(() => {
+              res.status(200).json({ message: 'User Info successfully' });
+          })
+          .catch((error) => {
+              res.status(500).json({ error: 'Error updating user info' });
+          });
+  });
   
 module.exports = router;

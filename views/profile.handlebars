@@ -2,7 +2,7 @@
 <html>
 <style>
 input[type=text], select {
-  width: 60%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: list-item;
@@ -12,7 +12,7 @@ input[type=text], select {
 }
 
 input[type=submit] {
-  width: 60%;
+  width: 50%;
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -55,12 +55,12 @@ div {
   
 
       <p>
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-save"></span> Save
-        </button>
+        <button type="button" onclick="saveUser()">Save</button>
+        <form class="save-content" action="/update/{{updateInfo.id}}"></form>  
+          
      </p> 
 
-</div>
+
 
 <style>
   button {
@@ -155,7 +155,7 @@ hr {
 </style>
 <body>
 
-<h2>Logout</h2>
+<h2></h2>
 
 
 <button onclick="document.getElementById('id01').style.display='block'">Logout</button>
@@ -281,12 +281,12 @@ hr {
   }
 }
 </style>
-<body>
-
-<h2>Delete Account</h2>
 
 
-<button onclick="document.getElementById('id02').style.display='block'">Delete</button>
+<h2></h2>
+
+
+<button onclick="document.getElementById('id02').style.display='block'">Delete Account</button>
 
 <div id="id02" class="delete">
   <span onclick="document.getElementById('id02').style.display='none'" class="close" title="delete">×</span>
@@ -315,7 +315,7 @@ window.onclick = function(event) {
   }
 }
 </style>
-   
+ </div>  
 
 </body>
  </form>
