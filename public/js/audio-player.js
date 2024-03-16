@@ -1,3 +1,5 @@
+let Meditation = []
+
 let track_name = document.querySelector('.track-name');
 let track_instructor = document.querySelector('.track-instructor');
 
@@ -11,38 +13,11 @@ let curr_time = document.querySelector('.current-time');
 let total_duration = document.querySelector('.total-duration');
 let curr_track = document.createElement('audio');
 
-let track_index = 0;
+let track_index = 0
 let isPlaying = false;
 let isRandom = false;
 let updateTimer;
-
-const meditation_list = [
-    {
-        name : 'Meditation for Deep Sleep',
-        instructor : 'Todd',
-        music : './audio/Track1.mp3'
-    },
-    {
-        name : 'Morning Meditation for Clarity',
-        instructor : 'Schmuckers',
-        music : './audio/Track2.mp3'
-    },
-    {
-        name : 'Grounding Meditation',
-        instructor : 'Lucy',
-        music : './audio/Track3.mp3'
-    },
-	{
-        name : 'Midday Meditation',
-        instructor : 'Lucy',
-        music : './audio/Track4.mp3'
-    },
-	{
-        name : 'Meditation for Self-Trust',
-        instructor : 'Leonardo',
-        music : './audio/Track5.mp3'
-    }
-];
+let playStarted; // Timestamp when the playing started
 
 loadTrack(track_index);
 
@@ -50,11 +25,7 @@ function loadTrack(track_index){
     clearInterval(updateTimer);
     reset();
 
-    curr_track.src = meditation_list[track_index].music;
     curr_track.load();
-
-    track_name.textContent = meditation_list[track_index].name;
-    track_instructor.textContent = meditation_list[track_index].instructor;
 
     updateTimer = setInterval(setUpdate, 1000);
 
@@ -71,20 +42,36 @@ function playpauseTrack(){
     isPlaying ? pauseTrack() : playTrack();
 }
 function playTrack(){
+	console.log('[playTrack]');
+	playStarted = Date.now()
+    let playButtonId = document.querySelector('#play-button')
+
+	let filePath = playButtonId.getAttribute('data-file-path');
+	if(!curr_track.src.endsWith(filePath)) {
+		curr_track.src = playButtonId.getAttribute('data-file-path');
+	}
     curr_track.play();
     isPlaying = true;
     playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
 function pauseTrack(){
+	console.log('[pauseTrack]');
     curr_track.pause();
     isPlaying = false;
     playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+    console.log(curr_time)
+	saveTime();
 }
 function nextTrack(){
-    if(track_index < meditation_list.length - 1 && isRandom === false){
+	saveTime();
+    let next_track = document.querySelector('#next-track-id')
+    let track_index = next_track.getAttribute('data-file-path')
+    console.log(track_index)
+
+    if(track_index < Meditation.length - 1 && isRandom === false){
         track_index += 1;
-    }else if(track_index < meditation_list.length - 1 && isRandom === true){
-        let random_index = Number.parseInt(Math.random() * meditation_list.length);
+    }else if(track_index < Meditation.length - 1 && isRandom === true){
+        let random_index = Number.parseInt(Math.random() * Meditation.length);
         track_index = random_index;
     }else{
         track_index = 0;
@@ -96,9 +83,10 @@ function prevTrack(){
     if(track_index > 0){
         track_index -= 1;
     }else{
-        track_index = meditation_list.length -1;
+        track_index = Meditation.length -1;
     }
     loadTrack(track_index);
+	saveTime();
     playTrack();
 }
 function seekTo(){
@@ -127,4 +115,27 @@ function setUpdate(){
         curr_time.textContent = currentMinutes + ":" + currentSeconds;
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
     }
+}
+
+async function saveTime(){
+	let currentTime = Date.now();
+	let millisecondsListened = currentTime - playStarted;
+
+	// send this value to server, so it updates the db
+	try {
+		const updateResponse = await fetch('/users/updatelistentime', {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				timeListened: Math.round(millisecondsListened / 1000)
+			})
+		});
+	} catch (err) {
+		console.log(err)
+	}
+
+
+
 }
