@@ -1,25 +1,32 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <header class="marbled-bg">
 
     <div class="weekly-duration">
-        <p style="font-size: 60px; font-weight: 800; text-align: center; margin-bottom: 20px;">4.3h</p>
+        <p style="font-size: 60px; font-weight: 800; text-align: center;">4.3h</p>
         <h1>Weekly Practice Duration</h1>
     </div>
-    <button type="button" id="menu">Menu</button>
+    <button type="button" id="menu">
+        <img src="/images/menu-list.svg">
+    </button>
 
 </header>
 
 <section class="recent-meditations">
-
-{{#each data}}
+    <p>Recently Played</p>
+    {{#each data}}
     <article class="meditation">
-        <h2 onclick="location.href='/meditations/{{id}}'">title: {{title}}</h2>
-        <p>instructor: {{instructorId}}</p>
-        <p>duration: {{duration}}m</p>
-        <button type="button" id="play-button" onclick="location.href='/player/{{id}}'">
-            <img src="/public/images/play.png">
+        <div class="meditation-info">
+            <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
+            <p>{{instructorId}}</p>
+            <p>{{duration}}m</p>
+        </div>
+        <button type="button" class="play-button" onclick="location.href='/player/{{id}}'">
+            <i class="fa fa-play-circle fa-4x"></i>
         </button>
     </article>
-{{/each}}
+    {{/each}}
 </section>
 
 <style>
