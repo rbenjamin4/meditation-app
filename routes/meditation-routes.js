@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
             return;
         }
 
-        res.render('player', { data: meditationData });
+        res.render('meditation', { data: meditationData });
         console.log(meditationData)
 
     } catch (err) {

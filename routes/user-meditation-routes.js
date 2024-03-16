@@ -1,19 +1,17 @@
 const router = require('express').Router();
-const { UserMeditation } = require('../models');
+const { UserMeditation, Meditation } = require('../models');
 
+// router.get('/', async (req, res) => {
+//     try {
+//         const recentMeditations = await UserMeditation.findAll({raw: true}, {
+//             include: [{ model: Meditation }],
+//             order: [["date_time", "DESC"]],
+//             limit: 3,
+//         });
+//         res.render('home', { recent: recentMeditations });
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
-
-
-
-
-
-router.get('/', async (req, res) => {
-    try {
-        const meditationData = await Meditation.findAll({raw: true}, {
-            include: [{ model: Instructor }],
-        });
-        res.render('all-meditations', { data: meditationData });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+module.exports = router;

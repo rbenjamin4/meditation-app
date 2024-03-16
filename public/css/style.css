@@ -121,9 +121,5 @@ article {
 .play-button {
     background-color: transparent;
     border: none;
-}
-
-.play-button {
-    background-color: transparent;
-    border: none;
+    cursor: pointer;
 }
