@@ -19,7 +19,7 @@ router.get('/home', async (req, res) => {
       const meditationData = await Meditation.findAll({raw: true}, {
           include: [{ model: Instructor }],
       });
-      console.log(meditationData)
+      console.log('meditationData:',meditationData);
       res.render('home', { data: meditationData });
   } catch (err) {
       res.status(500).json(err);

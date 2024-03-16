@@ -17,6 +17,7 @@ let track_index = 0
 let isPlaying = false;
 let isRandom = false;
 let updateTimer;
+let playStarted; // Timestamp when the playing started
 
 loadTrack(track_index);
 
@@ -41,20 +42,28 @@ function playpauseTrack(){
     isPlaying ? pauseTrack() : playTrack();
 }
 function playTrack(){
+	console.log('[playTrack]');
+	playStarted = Date.now()
     let playButtonId = document.querySelector('#play-button')
 
-    curr_track.src = playButtonId.getAttribute('data-file-path');
+	let filePath = playButtonId.getAttribute('data-file-path');
+	if(!curr_track.src.endsWith(filePath)) {
+		curr_track.src = playButtonId.getAttribute('data-file-path');
+	}
     curr_track.play();
     isPlaying = true;
     playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
 function pauseTrack(){
+	console.log('[pauseTrack]');
     curr_track.pause();
     isPlaying = false;
     playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
     console.log(curr_time)
+	saveTime();
 }
 function nextTrack(){
+	saveTime();
     let next_track = document.querySelector('#next-track-id')
     let track_index = next_track.getAttribute('data-file-path')
     console.log(track_index)
@@ -77,6 +86,7 @@ function prevTrack(){
         track_index = Meditation.length -1;
     }
     loadTrack(track_index);
+	saveTime();
     playTrack();
 }
 function seekTo(){
@@ -107,3 +117,25 @@ function setUpdate(){
     }
 }
 
+async function saveTime(){
+	let currentTime = Date.now();
+	let millisecondsListened = currentTime - playStarted;
+
+	// send this value to server, so it updates the db
+	try {
+		const updateResponse = await fetch('/users/updatelistentime', {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				timeListened: Math.round(millisecondsListened / 1000)
+			})
+		});
+	} catch (err) {
+		console.log(err)
+	}
+
+
+
+}
