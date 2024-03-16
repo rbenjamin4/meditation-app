@@ -41,6 +41,14 @@ User.init(
         weeklyGoal: {
             type: DataTypes.INTEGER,
             allowNull: true,
+        },
+        timeListened: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        weekNumber: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
         }
 },
 {
