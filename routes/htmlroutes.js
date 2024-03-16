@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Meditation, Instructor } = require('../models');
+const { Meditation, Instructor, UserMeditation } = require('../models');
 
 router.get('/', (req, res) => {
     res.render('login') 
@@ -17,7 +17,8 @@ router.get('/player', async (req, res) => {
 router.get('/home', async (req, res) => {
    try {
       const meditationData = await Meditation.findAll({raw: true}, {
-          include: [{ model: Instructor }],
+          include: [{ model: Instructor }, { model: UserMeditation }],
+          limit: 3,
       });
       console.log('meditationData:',meditationData);
       res.render('home', { data: meditationData });
