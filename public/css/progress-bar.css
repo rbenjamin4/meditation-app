@@ -23,7 +23,8 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin-bottom: -50px;
+    margin-bottom: -85px;
+    /* box-shadow: 5px 0px 0px 0px rgba(0,0,0,0.3); */
   }
   
   [role="progress-bar"]::before {
@@ -42,7 +43,7 @@
   
   [role="progress-bar"]::after {
     counter-reset: percentage var(--value);
-    content: '';
+    /* content: counter(percentage) '%'; */
     font-family: Helvetica, Arial, sans-serif;
     font-size: calc(var(--size) / 5);
     color: var(--primary);
