@@ -9,8 +9,8 @@ router.get('/login', (req, res) => {
    res.render('login') 
 })
 
-router.get('/player', (req, res) => {
-   res.render('player') 
+router.get('/player', async (req, res) => {
+   res.render('player')
 })
 
 //TODO: check if needs login
@@ -39,6 +39,18 @@ router.get('/player/:id', async (req, res) => {
       res.status(500).json(err);
   }
 });
+
+router.get('/player', async (req, res) => {
+   try {
+      const trackListData = await Meditation.findAll({raw: true}, {
+          include: [{ model: Meditation }],
+      });
+      console.log(trackListData)
+      res.render('player', { data: trackListData });
+  } catch (err) {
+      res.status(500).json(err);
+  }
+})
 
 router.get('/profile', (req, res) => {
    res.render('profile') 

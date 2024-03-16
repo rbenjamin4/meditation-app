@@ -21,14 +21,14 @@
             <i class="fa fa-volume-up"></i>
         </div>
 
-        <div id="buttons-container" class="buttons" data-file-path="/audio/{{data.fileName}}">
+        <div class="buttons">
             <div class="prev-track" onclick="prevTrack()">
                 <i class="fa fa-solid fa-step-backward fa-4x"></i>
             </div>
-            <div class="playpause-track" onclick="playpauseTrack()">
+            <div id="play-button" class="playpause-track" data-file-path="/audio/{{data.fileName}}" onclick="playpauseTrack()">
                 <i class="fa fa-play-circle fa-5x"></i>
             </div>
-            <div class="next-track" onclick="nextTrack()">
+            <div class="next-track" data-file-path="/audio/{{data.fileName}}" onclick="nextTrack()">
                 <i class="fa fa-solid fa-step-forward fa-4x"></i>
             </div>
         </div>
