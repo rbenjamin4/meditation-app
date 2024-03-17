@@ -54,6 +54,31 @@ div {
     <input type="text" id="goal" name="goal" placeholder="What is your weekly goal?">
   
 
+  <script>
+function saveWeeklyGoal() {
+  
+    let goalInput = document.getElementById("goal").value;
+
+    if (Number.isInteger(Number(goalInput))) {
+        // Input is a valid integer
+        let weeklyGoal = parseInt(goalInput);
+
+        saveWeeklyGoalAsInteger(weeklyGoal);
+
+        document.getElementById("goal").value = "";
+    } else {
+        
+        alert("Please enter a valid integer for the weekly goal.");
+    }
+}
+
+function saveWeeklyGoalAsInteger(goal) {
+    
+    console.log("Weekly Goal as an integer: " + goal);
+  
+}
+</script>
+
       <p>
         <button type="button" onclick="saveUser()">Save</button>
         <form class="save-content" action="/update/{{updateInfo.id}}"></form>  

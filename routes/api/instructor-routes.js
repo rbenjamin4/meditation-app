@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         const instructorData = await Instructor.findAll({
             include: [{ model: Meditation }],
         });
-        res.render('all-instructors', { data: instructorData });
+        res.render('all-instructors', { instructorData: instructorData });
     } catch (err) {
         res.status(500).json(err);
     }
