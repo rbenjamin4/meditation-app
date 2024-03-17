@@ -16,8 +16,9 @@ router.get('/player', async (req, res) => {
 //TODO: check if needs login
 router.get('/home', async (req, res) => {
    try {
-      const meditationData = await Meditation.findAll({raw: true}, {
-          include: [{ model: Instructor }, { model: UserMeditation }],
+      const meditationData = await Meditation.findAll({raw: true, 
+          include: [{ model: Instructor }],
+         //  order: [["users.user_meditation.date_time", "DESC"]],
           limit: 3,
       });
       console.log('meditationData:',meditationData);
@@ -28,6 +29,19 @@ router.get('/home', async (req, res) => {
 });
 //get db info & pass
 //if time, when you click play btn it updates list
+
+// router.get('/home', async (req, res) => {
+//    try {
+//        const recentMeditations = await UserMeditation.findAll({raw: true,
+//            include: [{ model: Meditation }],
+//            order: [["date_time", "DESC"]],
+//            limit: 3,
+//        });
+//        res.render('home', { recent: recentMeditations });
+//    } catch (err) {
+//        res.status(500).json(err);
+//    }
+// });
 
 router.get('/player/:id', async (req, res) => {
    try {

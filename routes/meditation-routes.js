@@ -1,14 +1,15 @@
 const router = require('express').Router();
-const { Meditation, Instructor } = require('../models');
+const { Meditation, Instructor, User } = require('../models');
 
 // the `/meditations` endpoint
 
 router.get('/', async (req, res) => {
     try {
-        const meditationData = await Meditation.findAll({raw: true}, {
-            include: [{ model: Instructor }],
+        const meditationData = await Meditation.findAll({raw: true, 
+            include: [{ model: Instructor }, { model: User }],
         });
         res.render('all-meditations', { data: meditationData });
+        console.log(meditationData)
     } catch (err) {
         res.status(500).json(err);
     }
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const meditationData = await Meditation.findByPk(req.params.id, {raw: true}, {
+        const meditationData = await Meditation.findByPk(req.params.id, {raw: true, 
             include: [{ model: Instructor }],
         });
 
