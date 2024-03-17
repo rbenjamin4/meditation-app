@@ -5,11 +5,11 @@
 <header class="marbled-bg">
 
     <div class="weekly-duration">
-        <div role="progress-bar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="--value: 33;"></div>
+        <div role="progress-bar" aria-valuenow="{{data.users.timeListened}}" aria-valuemin="0" aria-valuemax="100" style="--value: {{data.users.timeListened}};"></div>
         <p style="font-size: 60px; font-weight: 800; text-align: center;">4.3h</p>
         <h1>Weekly Practice Duration</h1>
     </div>
-    <button type="button" id="menu" onclick="location.href='/meditations/'">
+    <button type="button" id="menu" onclick="location.href='/api/meditations/'">
         <img src="/images/menu-list.svg">
     </button>
 
@@ -17,14 +17,14 @@
 
 <section class="recent-meditations">
     <p>Recently Played</p>
-    {{#each data }}
+    {{#each data}}
     <article class="meditation">
         <div class="meditation-info">
-            <h2 onclick="location.href='/api/meditations/{{id}}'">{{title}}</h2>
-            <p>{{instructorId}}</p>
-            <p>{{duration}}m</p>
+            <h2 onclick="location.href='/api/meditations/{{dataValues.id}}'">{{dataValues.title}}</h2>
+            <p>{{instructor.dataValues.name}}</p>
+            <p>{{dataValues.duration}}m</p>
         </div>
-        <button type="button" class="play-button" onclick="location.href='/api/meditations/{{id}}'">
+        <button type="button" class="play-button" onclick="location.href='/player/{{dataValues.id}}'">
             <i class="fa fa-play-circle fa-4x"></i>
         </button>
     </article>

@@ -31,8 +31,8 @@ UserMeditation.init(
             //update when they clicked, order last clicked time descending
             //querying user-meditations where userID = userID
             //last three clicked, controller gets that from model, front end displays
-        }
-        
+        },
+
         // number of mins user has listened
         // Date
 

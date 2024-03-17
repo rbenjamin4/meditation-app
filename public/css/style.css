@@ -13,6 +13,11 @@ body {
 body, .marbled-bg {
     background-image: url('../images/background.webp');
     background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.marbled-bg {
+    margin-bottom: 0px;
 }
 
 h1 {
@@ -47,6 +52,7 @@ h2 {
     justify-content: space-between;
     flex: 1 1 81px;
     flex-wrap: nowrap;
+    gap: 10px;
     margin-right: 20px;
     margin-left: 20px;
 }
@@ -66,12 +72,12 @@ h2 {
 .recent-meditations {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     position: relative;
     padding-top: 35px;
     padding-bottom: 50px;
-    background-color: #F8F3F3;
 }
 
 .meditations-library::before {
@@ -91,11 +97,6 @@ article {
     z-index: 1;
     min-width: 266px;
 }
-
-/* .recent-meditations {
-    position: relative;
-    padding: 35px;
-} */
 
 .recent-meditations::before {
     content: "";
@@ -121,9 +122,29 @@ article {
 .play-button {
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
-.play-button {
-    background-color: transparent;
-    border: none;
+i.fa-play-circle {
+    color: #474747;
+}
+
+
+@media screen and (min-width: 480px) {
+    .weekly-duration {
+        padding-bottom: 100px;
+    }
+
+    .recent-meditations::before {
+        top: -190px;
+    }
+
+    .meditation-info {
+        width: 600px;
+    }
+
+    article {
+        width: 600px;
+    }
+
 }

@@ -12,11 +12,11 @@
     {{#each data}}
     <article class="meditation">
         <div class="meditation-info">
-            <h2 onclick="location.href='/api/meditations/{{id}}'">{{title}}</h2>
-            <p>{{instructorId}}</p>
-            <p>{{duration}}m</p>
+            <h2 onclick="location.href='/api/meditations/{{dataValues.id}}'">{{dataValues.title}}</h2>
+            <p>{{instructor.dataValues.name}}</p>
+            <p>{{dataValues.duration}}m</p>
         </div>
-        <button type="button" class="play-button" onclick="location.href='/api/meditations/{{id}}'">
+        <button type="button" class="play-button" onclick="location.href='/player/{{dataValues.id}}'">
             <i class="fa fa-play-circle fa-4x"></i>
         </button>
     </article>
@@ -33,7 +33,4 @@ display recently played
 adjust for desktop
 
 save clicked on in database
-
-for player:
-html audio tag? for mp3 file. js a stop/start. see what options they have... if they don't have it, look for third party ... node js audio-player
 --}}
