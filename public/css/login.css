@@ -4,49 +4,69 @@ body {
     padding: 0;
     background-image: url('../images/background.webp');
     background-repeat: no-repeat;
-    }
-    
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    
-    .form-container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
-    }
-    
-    h2 {
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-    
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="email"],
-    input[type="password"] {
-        width: 90%;
-        padding: 10px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    button {
-        background-color: #1a1a1a;
-        color: #fff;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: #b39500;
-    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-card {
+    width: 370px;
+    background-color: #F8F3F3;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+    margin: 10px;
+}
+
+.signup-card {
+    width: 370px;
+    background-color: #F8F3F3;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+    margin: 10px;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #1a1a1a;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b39500;
+}
