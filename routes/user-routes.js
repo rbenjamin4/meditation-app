@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../models');
 
+
 //log in
 router.post('/login', async (req, res) => {
     try {
@@ -138,6 +139,7 @@ router.delete('/:id', async (req, res)=> {
         res.status(500).json(err);
       }
 })
+
 
 
 function getWeekNumber(d) {
