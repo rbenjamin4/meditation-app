@@ -2,7 +2,7 @@
 <html>
 <style>
 input[type=text], select {
-  width: 60%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: list-item;
@@ -12,7 +12,7 @@ input[type=text], select {
 }
 
 input[type=submit] {
-  width: 60%;
+  width: 50%;
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -53,46 +53,180 @@ div {
     <label for="goal">Weekly Goal</label>
     <input type="text" id="goal" name="goal" placeholder="What is your weekly goal?">
   
+
   <script>
 function saveWeeklyGoal() {
-    // Get the input value as a string
+  
     let goalInput = document.getElementById("goal").value;
 
-    // Check if the input is a valid integer
     if (Number.isInteger(Number(goalInput))) {
         // Input is a valid integer
         let weeklyGoal = parseInt(goalInput);
 
-        // Call a function to save the weekly goal as an integer
         saveWeeklyGoalAsInteger(weeklyGoal);
 
-        // Reset the form field after saving
         document.getElementById("goal").value = "";
     } else {
-        // Display an error message or handle the case where the input is not an integer
+        
         alert("Please enter a valid integer for the weekly goal.");
     }
 }
 
 function saveWeeklyGoalAsInteger(goal) {
-    // Function to save the weekly goal as an integer
+    
     console.log("Weekly Goal as an integer: " + goal);
-    // Add your logic here to save the weekly goal as an integer
+  
 }
 </script>
+
       <p>
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-save"></span> Save
-           </button>
+        <button type="button" onclick="saveUser()">Save</button>
+        <form class="save-content" action="/update/{{updateInfo.id}}"></form>  
+          
      </p> 
 
-     <p>
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-log-out"></span> Log out
-           </button>
-     </p>              
+<script>
+    function saveUser() {
+      // Your code to save user data goes here
+
+      // Reset the form fields after saving
+      document.getElementById("fname").value = "";
+      document.getElementById("lname").value = "";
+      document.getElementById("uname").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("goal").value = "";
+    }
+  </script>
+
+
+<style>
+  button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+
+.cancelbtn, .logoutbtn {
+  float: left;
+  width: 50%;
+}
+
+.logoutbtn {
+  background-color: #f44336;
+}
+
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+.logout {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+
+  overflow: auto; 
+
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+.logout {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+
+  width: 50%; 
+}
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+@media screen and (max-width: 100px) {
+
+  .cancelbtn, .logoutbtn {
+     width: 50%;
+  }
+}
+</style>
+<body>
+
+<h2></h2>
+
+
+<button onclick="document.getElementById('id01').style.display='block'">Logout</button>
+
+<div id="id01" class="logout">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="logout">×</span>
+
+  <form class="logout-content" action="/logout/{{logout.id}}">
+    <div class="container">
+      <h1>Logout</h1>
+      <p>Are you sure you want to logout of your account?</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Logout</button>
+      </div>
+    </div>
   </form>
 </div>
+
+<script>
+
+var logout = document.getElementById('id01');
+
+
+window.onclick = function(event) {
+  if (event.target == logout) {
+    logout.style.display = "none";
+  }
+}
+</style>
+
+</script>
+
 <style>
   button {
   background-color: #04AA6D;
@@ -132,7 +266,9 @@ button:hover {
   top: 0;
   width: 100%; 
   height: 100%; 
+
   overflow: auto; 
+
   background-color: #474e5d;
   padding-top: 50px;
 }
@@ -141,8 +277,10 @@ button:hover {
   background-color: #fefefe;
   margin: 5% auto 15% auto; 
   border: 1px solid #888;
+
   width: 50%; 
 }
+
 
 hr {
   border: 1px solid #f1f1f1;
@@ -172,28 +310,32 @@ hr {
 }
 
 
+
 @media screen and (max-width: 100px) {
+
   .cancelbtn, .deletebtn {
      width: 50%;
   }
 }
 </style>
-<body>
 
-<h2>Delete Account</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'">Delete</button>
+<h2></h2>
 
-<div id="id01" class="delete">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="delete">×</span>
-  <form class="delete-content" action="/action_page.php">
+
+<button onclick="document.getElementById('id02').style.display='block'">Delete Account</button>
+
+<div id="id02" class="delete">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="delete">×</span>
+
+  <form class="delete-content" action="/users/{{user.id}}">
     <div class="container">
       <h1>Delete Account</h1>
       <p>Are you sure you want to delete your account?</p>
     
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="deletebtn">Delete</button>
       </div>
     </div>
   </form>
@@ -201,7 +343,7 @@ hr {
 
 <script>
 
-var delete = document.getElementById('id01');
+var delete = document.getElementById('id02');
 
 
 window.onclick = function(event) {
@@ -210,7 +352,8 @@ window.onclick = function(event) {
   }
 }
 </style>
-   
+ </div>  
 
 </body>
+ </form>
 </html>
