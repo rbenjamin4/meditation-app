@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Meditation, Instructor } = require('../models');
+const { Meditation, Instructor } = require('../../models');
 
 // the `/instructors` endpoint
 

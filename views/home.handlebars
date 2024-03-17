@@ -18,11 +18,11 @@
     {{#each data}}
     <article class="meditation">
         <div class="meditation-info">
-            <h2 onclick="location.href='/meditations/{{id}}'">{{title}}</h2>
+            <h2 onclick="location.href='/api/meditations/{{id}}'">{{title}}</h2>
             <p>{{instructorId}}</p>
             <p>{{duration}}m</p>
         </div>
-        <button type="button" class="play-button" onclick="location.href='/player/{{id}}'">
+        <button type="button" class="play-button" onclick="location.href='/api/meditations/{{id}}'">
             <i class="fa fa-play-circle fa-4x"></i>
         </button>
     </article>
