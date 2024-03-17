@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const hbs = create({ /* config */ });
 
+
 app.use(express.static('public'));
 
 app.use(express.json());
