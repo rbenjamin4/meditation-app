@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { UserMeditation, Meditation } = require('../models');
 
-// router.get('/', async (req, res) => {
+// router.get('/home', async (req, res) => {
 //     try {
-//         const recentMeditations = await UserMeditation.findAll({raw: true}, {
+//         const recentMeditations = await UserMeditation.findAll({raw: true,
 //             include: [{ model: Meditation }],
 //             order: [["date_time", "DESC"]],
 //             limit: 3,
