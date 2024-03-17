@@ -116,47 +116,37 @@ router.put('/updatelistentime', async (req, res) => {
       return res.status(204).json();
 
     }
-  } catch (err) {
-    console.log('Reading user failed:', dbUserData);
-  }
 
-  try {
-    console.log('SAving User...', req.body.timeListened)
-    const meditationData = await User.increment(
-      {
-        timeListened: req.body.timeListened
-      }, {
-      where: {
-        id: userId
-      }
-    }
-    );
-    console.log('SAVED USER.');
-    res.status(204).json();
+    });
+  
+    //weekly goal
 
-  } catch (err) {
-    console.log('ERROR SAVING USER:', err)
-    res.status(500).json(err);
-  }
-})
+    function saveWeeklyGoalAsInteger(goal) {
+      console.log("Weekly Goal as an integer: " + goal);
 
-
-
-function getWeekNumber(d) {
-  // Copy date so don't modify original
-  d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-  // Set to nearest Thursday: current date + 4 - current day number
-  // Make Sunday's day number 7
-  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-  // Get first day of year
-  var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-  // Calculate full weeks to nearest Thursday
-  var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
-  // Return array of year and week number
-  return weekNo;
+      fetch('/updateWeeklyGoal', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ weeklyGoal: goal }),
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Weekly goal updated successfully!');
+        } else {
+            console.error('Failed to update weekly goal');
+        }
+    })
+    .catch(error => {
+        console.error('Error updating weekly goal:', error);
+    });
 }
 
-// var currentWeekNumber = getWeekNumber(new Date());
-// console.log(currentWeekNumber); // This will log the current week number
+router.put('/updateWeeklyGoal', (req, res) => {
+  const { weeklyGoal } = req.body;
+  res.status(200).send('Weekly goal updated successfully');
+});
+
 
 module.exports = router;
