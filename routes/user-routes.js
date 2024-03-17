@@ -67,4 +67,33 @@ router.delete('/:id', async (req, res)=> {
     }
     });
   
+    //weekly goal
+
+    function saveWeeklyGoalAsInteger(goal) {
+      console.log("Weekly Goal as an integer: " + goal);
+
+      fetch('/updateWeeklyGoal', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ weeklyGoal: goal }),
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Weekly goal updated successfully!');
+        } else {
+            console.error('Failed to update weekly goal');
+        }
+    })
+    .catch(error => {
+        console.error('Error updating weekly goal:', error);
+    });
+}
+
+router.put('/updateWeeklyGoal', (req, res) => {
+  const { weeklyGoal } = req.body;
+  res.status(200).send('Weekly goal updated successfully');
+});
+
 module.exports = router;
