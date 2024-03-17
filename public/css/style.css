@@ -71,7 +71,8 @@ h2 {
 .recent-meditations {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     position: relative;
     padding-top: 35px;
@@ -143,11 +144,7 @@ i.fa-play-circle {
     }
 
     article {
-        width: 800px;
-    }
-
-    section {
-        justify-content: center;
+        width: 600px;
     }
 
 }
