@@ -5,7 +5,7 @@
 <header class="marbled-bg">
 
     <div class="weekly-duration">
-        <div role="progress-bar" aria-valuenow="{{dataValues.users.timeListened}}" aria-valuemin="0" aria-valuemax="100" style="--value: {{dataValues.users.timeListened}};"></div>
+        <div role="progress-bar" aria-valuenow="{{user.dataValues.timeListened}}" aria-valuemin="0" aria-valuemax="100" style="--value: {{user.dataValues.timeListened}};"></div>
         <p style="font-size: 60px; font-weight: 800; text-align: center;">4.3h</p>
         <h1>Weekly Practice Duration</h1>
     </div>
@@ -20,7 +20,7 @@
     {{#each data}}
     <article class="meditation">
         <div class="meditation-info">
-            <h2 onclick="location.href='/api/meditations/{{dataValues.id}}'">{{dataValues.title}}</h2>
+            <h2>{{dataValues.title}}</h2>
             <p>{{instructor.dataValues.name}}</p>
             <p>{{dataValues.duration}}m</p>
         </div>

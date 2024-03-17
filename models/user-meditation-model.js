@@ -36,8 +36,6 @@ UserMeditation.init(
         // number of mins user has listened
         // Date
 
-        // for total time: just add to user table - will need third party on software stuff to make that work... front end problem - considers that pretty hard, would not try to write himself - would probably need audio api that has "get users time"
-
         // add date /time column
         // when they click, send to controller
         // order them by last clicked time

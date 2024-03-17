@@ -12,7 +12,7 @@
     {{#each data}}
     <article class="meditation">
         <div class="meditation-info">
-            <h2 onclick="location.href='/api/meditations/{{dataValues.id}}'">{{dataValues.title}}</h2>
+            <h2>{{dataValues.title}}</h2>
             <p>{{instructor.dataValues.name}}</p>
             <p>{{dataValues.duration}}m</p>
         </div>
@@ -26,7 +26,6 @@
 
 
 {{!-- TODO:
-display instructor name
 get user listening time for home page progress bar {{id}} {{goal}}
 UserMeditation id's
 display recently played
