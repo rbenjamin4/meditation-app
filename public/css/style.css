@@ -52,6 +52,7 @@ h2 {
     justify-content: space-between;
     flex: 1 1 81px;
     flex-wrap: nowrap;
+    gap: 10px;
     margin-right: 20px;
     margin-left: 20px;
 }
@@ -139,8 +140,7 @@ i.fa-play-circle {
     }
 
     .meditation-info {
-        min-width: 350px;
-        max-width: 600px;
+        width: 600px;
     }
 
     article {
