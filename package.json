@@ -19,6 +19,7 @@
     "handlebars": "^4.7.8",
     "howler": "^2.2.4",
     "pg": "^8.11.3",
-    "sequelize": "^6.37.1"
+    "sequelize": "^6.37.1",
+    "session": "^0.1.0"
   }
 }

@@ -43,7 +43,7 @@
   
   [role="progress-bar"]::after {
     counter-reset: percentage var(--value);
-    /* content: counter(percentage) '%'; */
+    content: counter(percentage) '%';
     font-family: Helvetica, Arial, sans-serif;
     font-size: calc(var(--size) / 5);
     color: var(--primary);
