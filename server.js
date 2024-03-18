@@ -6,20 +6,24 @@ const routes = require('./routes');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001
 const app = express();
 const hbs = create({ helpers });
 
 const sess = {
-    secret: process.env.SECRET,
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize,
-    }),
-  };
-  
+  secret: process.env.SECRET,
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.listen(process.env.PORT || 3000, function () {
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+
 app.use(session(sess));
 
 app.use(express.static('public'));
@@ -34,7 +38,7 @@ app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => {
-        console.log(`App listening on port ${PORT}!`)
-    })
+  app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}!`)
+  })
 });
