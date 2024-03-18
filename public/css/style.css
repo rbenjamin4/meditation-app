@@ -118,6 +118,14 @@ article {
     background-size: 100%;
 }
 
+.recently-played {
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+    margin-bottom: -20px;
+    text-align: left;
+}
+
 #menu {
     position: absolute;
     left: 50%;
@@ -138,9 +146,9 @@ i.fa-play-circle {
 }
 
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 800px) {
     .weekly-duration {
-        padding-bottom: 100px;
+        padding-bottom: 80px;
     }
 
     .recent-meditations::before {
