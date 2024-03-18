@@ -24,7 +24,6 @@
     align-items: flex-end;
     justify-content: center;
     margin-bottom: -85px;
-    /* box-shadow: 5px 0px 0px 0px rgba(0,0,0,0.3); */
   }
   
   [role="progress-bar"]::before {

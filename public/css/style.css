@@ -32,11 +32,16 @@ h1 {
 
 .weekly-duration {
     padding-top: 40px;
-    padding-bottom: 55px;
+    padding-bottom: 155px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     place-items: center;
+}
+
+.weekly-duration h1 {
+    padding-top: 50px;
+    padding-bottom: -40px;
 }
 
 h2 {
