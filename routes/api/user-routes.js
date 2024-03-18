@@ -106,6 +106,7 @@ router.put('/profile/:id', (req, res) => {
 });
 
 
+//UPDATE TIME LISTENED PER USER
 router.put('/updatelistentime/:id', async (req, res) => {
   let userId = req.params.id
   console.log(userId)
@@ -203,6 +204,29 @@ router.put('/updateWeeklyGoal', (req, res) => {
   const { weeklyGoal } = req.body;
   res.status(200).send('Weekly goal updated successfully');
 });
+
+// CREATE WEEKLY GOAL
+router.put('/updategoal/:id', async (req, res) => {
+  let userId = req.params.id
+  console.log(userId)
+
+  try {
+    const newGoal = await User.update({
+      weeklyGoal: req.body.weeklyGoal,
+    }, {
+    where: {
+      id: userId
+    }
+    })
+    res.status(200).json(newGoal);
+  }
+  catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
+
 
 
 module.exports = router;
