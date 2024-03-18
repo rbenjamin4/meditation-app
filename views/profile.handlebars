@@ -3,6 +3,7 @@
 <h3>User Profile</h3>
 
 <div>
+<form class="save-content" action="/update/{{updateInfo.id}}">
 
   <label for="fName">First Name</label>
   <input type="text" id="fname" name="firstname" placeholder="Your name..">
@@ -19,8 +20,7 @@
   <label for="goal">Weekly Goal</label>
   <input type="text" id="goal" name="goal" placeholder="What is your weekly goal?">
 
-
-  <form class="save-content" action="/update/{{updateInfo.id}}">
+<input type="hidden" name="userId" value="{{userId}}">  
     {{!-- <button type="button" id="saveBtn" onclick="saveUser()">Save</button> --}}
   <input type="submit" name="Save" value="Save" id="saveBtn">
 </form>

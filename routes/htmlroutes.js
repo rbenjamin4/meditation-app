@@ -99,7 +99,7 @@ router.get('/trackList', async (req, res) => {
 })
 
 router.get('/profile', (req, res) => {
-   res.render('profile') 
+   res.render('profile', {userId:req.session.userId}) 
 })
 
 
