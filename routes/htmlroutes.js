@@ -48,7 +48,7 @@ router.get('/home', async (req, res) => {
 //    }
 // });
 
-router.get('/player/:id', async (req, res) => {
+router.get('/api/meditations/:id', async (req, res) => {
    try {
       const meditationData = await Meditation.findByPk(req.params.id, {
           include: [{ model: Instructor }],
