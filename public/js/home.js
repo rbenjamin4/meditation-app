@@ -10,4 +10,4 @@ const getRecentlyPlayed = async () => {
 }
 
 
-playBtn.addEventListener('click', getRecentlyPlayed)
+// playBtn.addEventListener('click', getRecentlyPlayed)

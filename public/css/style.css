@@ -122,8 +122,9 @@ article {
     position: relative;
     z-index: 1;
     padding-top: 20px;
+    padding-left: 27px;
     margin-bottom: -20px;
-    text-align: left;
+    align-self: flex-start;
 }
 
 #menu {
