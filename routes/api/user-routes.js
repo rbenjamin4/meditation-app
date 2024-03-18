@@ -1,16 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/', async (req, res) => {
-  try {
-      const userData = await User.findAll();
-      res.render('home', { data: userData });
-      console.log(userData)
-  } catch (err) {
-      res.status(500).json(err);
-  }
-});
-
 router.get('/:id', async (req, res) => {
   try {
       const userData = await User.findByPk({
@@ -78,10 +68,10 @@ router.post('/login', async (req, res) => {
     //     .json({ message: 'Incorrect email or password. Please try again!' });
     //   return;
     // }
-
+    const userData = dbUserData.get({plain: true});
     req.session.save(() => {
       req.session.loggedIn = true;
-
+      req.session.userId = userData.id;
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
