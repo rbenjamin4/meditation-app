@@ -27,16 +27,10 @@ User.init(
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate:{
-                len: [8],
-            },
         },
         username: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate:{
-            len: [8],
-            },
         },
         weeklyGoal: {
             type: DataTypes.INTEGER,

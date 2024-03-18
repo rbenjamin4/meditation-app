@@ -2,9 +2,8 @@
   "name": "meditation-app",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "createaccount.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
@@ -12,22 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.4.5",
     "express": "^4.18.3",
     "express-handlebars": "^5.2.0",
+    "express-session": "^1.18.0",
     "handlebars": "^4.7.8",
     "howler": "^2.2.4",
     "pg": "^8.11.3",
     "sequelize": "^6.37.1"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "name": "meditation-app",
-  "description": "",
-  "version": "1.0.0",
-  "main": "createaccount.js",
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {}
+  }
 }

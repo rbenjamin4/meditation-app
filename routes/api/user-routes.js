@@ -40,12 +40,12 @@ router.post('/login', async (req, res) => {
 
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
-      return;
-    }
+    // if (!validPassword) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Incorrect email or password. Please try again!' });
+    //   return;
+    // }
 
     req.session.save(() => {
       req.session.loggedIn = true;
@@ -106,9 +106,9 @@ router.put('/profile/:id', (req, res) => {
 });
 
 
-router.put('/updatelistentime', async (req, res) => {
-  let userId = 1;
-
+router.put('/updatelistentime/:id', async (req, res) => {
+  let userId = req.params.id
+  console.log(userId)
 
   let currentWeekNumber = getWeekNumber(new Date());
 
