@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Meditation, Instructor, UserMeditation, User } = require('../models');
+const withAuth = require('../utils/auth');
 
  router.get('/login', (req, res) => {
     res.render('login') 
@@ -9,9 +10,11 @@ router.get('/', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/home');
       return;
+    } else if (!req.session.loggedIn){
+        res.redirect('/login');
     }
   
-    res.render('login');
+    
   });
 
 router.get('/player', async (req, res) => {
@@ -19,7 +22,7 @@ router.get('/player', async (req, res) => {
 })
 
 //TODO: check if needs login
-router.get('/home', async (req, res) => {
+router.get('/home', withAuth, async (req, res) => {
    try {
       let meditationData = await Meditation.findAll({
           include: [{ model: Instructor }],
