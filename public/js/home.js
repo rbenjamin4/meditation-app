@@ -1,12 +1,13 @@
-// const playBtn = document.querySelector('#play-button');
+const playBtn = document.querySelector('#play-button');
 
-// const openPlayer = async () => {
-//     try {
-//         const meditation = await fetch('meditations/1');
-//     } catch (err) {
-//         console.log(err)
-//     }
-// }
+const getRecentlyPlayed = async () => {
+    let 
+    try {
+        const recentMeditation = await fetch('meditations');
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 
-// playBtn.addEventListener('click', openPlayer)
+playBtn.addEventListener('click', getRecentlyPlayed)
