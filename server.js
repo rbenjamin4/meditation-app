@@ -10,7 +10,7 @@ const app = express();
 const hbs = create({ /* config */ });
 
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.SECRET,
     cookie: {},
     resave: false,
     saveUninitialized: true,
