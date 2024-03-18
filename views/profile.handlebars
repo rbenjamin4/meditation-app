@@ -20,11 +20,11 @@
   <input type="text" id="goal" name="goal" placeholder="What is your weekly goal?">
 
 
-  <p>
-    <button type="button" onclick="saveUser()">Save</button>
-  <form class="save-content" action="/update/{{updateInfo.id}}"></form>
+  <form class="save-content" action="/update/{{updateInfo.id}}">
+    {{!-- <button type="button" id="saveBtn" onclick="saveUser()">Save</button> --}}
+  <input type="submit" name="Save" value="Save" id="saveBtn">
+</form>
 
-  </p>
 
   <button onclick="document.getElementById('id01').style.display='block'">Logout</button>
 
