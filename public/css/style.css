@@ -14,10 +14,12 @@ body, .marbled-bg {
     background-image: url('../images/background.webp');
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #F8F3F3;
 }
 
 .marbled-bg {
     margin-bottom: 0px;
+    background-color: #F8F3F3;
 }
 
 h1 {
@@ -32,16 +34,17 @@ h1 {
 
 .weekly-duration {
     padding-top: 40px;
-    padding-bottom: 155px;
+    padding-bottom: 55px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     place-items: center;
+    gap: 20px;
 }
 
 .weekly-duration h1 {
-    padding-top: 50px;
-    padding-bottom: -40px;
+    padding-top: 45px;
+    padding-bottom: 10px;
 }
 
 h2 {
