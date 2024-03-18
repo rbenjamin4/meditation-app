@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Meditation, Instructor, UserMeditation } = require('../models');
+const { Meditation, Instructor, UserMeditation, User } = require('../models');
 
  router.get('/login', (req, res) => {
     res.render('login') 

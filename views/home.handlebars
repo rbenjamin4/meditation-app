@@ -5,8 +5,8 @@
 <header class="marbled-bg">
 
     <div class="weekly-duration">
-        <div role="progress-bar" aria-valuenow="{{user.dataValues.timeListened}}" aria-valuemin="0" aria-valuemax="100" style="--value: {{user.dataValues.timeListened}};"></div>
-        <p style="font-size: 60px; font-weight: 800; text-align: center;">_</p>
+        <div role="progress-bar" aria-valuenow="{{user.dataValues.timeListened}}" aria-valuemin="0" aria-valuemax="{{user.dataValues.weeklyGoal}}" style="--value: {{user.dataValues.timeListened}};"></div>
+        <p style="font-size: 60px; font-weight: 800; text-align: center;"></p>
         <h1>Weekly Practice Duration</h1>
     </div>
     <button type="button" id="menu" onclick="location.href='/api/meditations/'">
@@ -24,7 +24,7 @@
             <p>{{instructor.dataValues.name}}</p>
             <p>{{dataValues.duration}}m</p>
         </div>
-        <button type="button" class="play-button" onclick="location.href='/api/mediations/{{dataValues.id}}'">
+        <button type="button" class="play-button" onclick="location.href='/api/meditations/{{dataValues.id}}'">
             <i class="fa fa-play-circle fa-4x"></i>
         </button>
     </article>
