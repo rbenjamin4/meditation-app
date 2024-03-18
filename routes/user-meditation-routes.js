@@ -14,4 +14,6 @@ router.get('/home', async (req, res) => {
     }
 });
 
+//post route for when they play to update time last played
+
 module.exports = router;
