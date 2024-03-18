@@ -164,4 +164,9 @@ i.fa-play-circle {
         width: 600px;
     }
 
+    .recently-played {
+        align-self: center;
+        padding-left: 0px;
+    }
+
 }
