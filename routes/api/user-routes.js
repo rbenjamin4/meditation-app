@@ -11,6 +11,28 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+      const userData = await User.findByPk({
+        where: {
+          id: req.params.id,
+        },
+      });
+
+      if (!userData) {
+          res.status(404).json({ message: 'No user found with that ID!' });
+          return;
+      }
+
+      res.render('player', { data: userData });
+      console.log(userData)
+
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
