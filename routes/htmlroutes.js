@@ -1,13 +1,18 @@
 const router = require('express').Router();
 const { Meditation, Instructor, UserMeditation } = require('../models');
 
-router.get('/', (req, res) => {
+ router.get('/login', (req, res) => {
     res.render('login') 
  })
 
-router.get('/login', (req, res) => {
-   res.render('login') 
-})
+router.get('/', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/home');
+      return;
+    }
+  
+    res.render('login');
+  });
 
 router.get('/player', async (req, res) => {
    res.render('player')

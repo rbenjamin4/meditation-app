@@ -123,7 +123,8 @@ async function saveTime(){
 
 	// send this value to server, so it updates the db
 	try {
-		const updateResponse = await fetch('/users/updatelistentime', {
+        const userId = localStorage.getItem('userId')
+		const updateResponse = await fetch('/api/users/updatelistentime' + '/' + userId, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
