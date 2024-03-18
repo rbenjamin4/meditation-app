@@ -1,13 +1,14 @@
 const express = require('express');
 const session = require('express-session')
 const { create } = require('express-handlebars');
+const helpers = require('./utils/helpers');
 const routes = require('./routes');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const hbs = create({ /* config */ });
+const hbs = create({ helpers });
 
 const sess = {
     secret: process.env.SECRET,

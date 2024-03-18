@@ -21,17 +21,40 @@ router.get('/player', async (req, res) => {
 //TODO: check if needs login
 router.get('/home', async (req, res) => {
    try {
-      const meditationData = await Meditation.findAll({
+      let meditationData = await Meditation.findAll({
           include: [{ model: Instructor }],
          //  order: [["users.user_meditation.date_time", "DESC"]],
           limit: 3,
       });
-      console.log('meditationData:',meditationData);
-      res.render('home', { data: meditationData });
+      meditationData = meditationData.map((value) => {
+        return value.get({plain: true});
+      })
+      let userData = await User.findByPk(req.session.userId, {
+        attributes: {
+            exclude: ['username', 'email', 'password']
+        }
+      });
+      userData = userData.get({plain: true});
+      console.log(userData)
+      res.render('home', {
+        meditations: meditationData,
+        user: userData,
+    });
   } catch (err) {
       res.status(500).json(err);
   }
 });
+
+router.get('/user', async (req, res) => {
+    try {
+        const userData = await User.findAll();
+        res.render('home', { data: userData });
+        console.log(userData)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+  });
+
 //get db info & pass
 //if time, when you click play btn it updates list
 

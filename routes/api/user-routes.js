@@ -1,15 +1,27 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-      const userData = await User.findAll();
-      res.render('home', { data: userData });
+      const userData = await User.findByPk({
+        where: {
+          id: req.params.id,
+        },
+      });
+
+      if (!userData) {
+          res.status(404).json({ message: 'No user found with that ID!' });
+          return;
+      }
+
+      res.render('player', { data: userData });
       console.log(userData)
+
   } catch (err) {
       res.status(500).json(err);
   }
 });
+
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -56,10 +68,10 @@ router.post('/login', async (req, res) => {
     //     .json({ message: 'Incorrect email or password. Please try again!' });
     //   return;
     // }
-
+    const userData = dbUserData.get({plain: true});
     req.session.save(() => {
       req.session.loggedIn = true;
-
+      req.session.userId = userData.id;
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
