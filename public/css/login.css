@@ -6,6 +6,12 @@ body {
     background-repeat: no-repeat;
 }
 
+.row {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -69,4 +75,16 @@ button {
 
 button:hover {
     background-color: #b39500;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+@media screen and (min-width: 480px) {
+    .row {
+        flex-direction: row;
+    }
 }
