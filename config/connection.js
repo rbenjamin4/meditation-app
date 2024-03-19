@@ -3,11 +3,11 @@ require('dotenv').config();
 
 let sequelize
 
-// if (process.env.DATABASE_URL) {
-//   sequelize = new Sequelize(process.env.DATABASE_URL)
-// }
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL)
+}
 
-// else {
+else {
 
 sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -17,17 +17,10 @@ sequelize = new Sequelize(
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     dialect: 'postgres',
-    ssl: true, 
-    dialectOptions: {
-      ssl: {
-        require: true, // This will help you. But you will see nwe error
-        rejectUnauthorized: false // This line will fix new error
-      }
   },
-}
 );
 
-// }
+}
 
 // const { Client } = require('pg');
 
