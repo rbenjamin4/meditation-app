@@ -15,10 +15,15 @@ sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: process.env.DB_HOST,
-    dialect: 'postgres',
     port: process.env.DB_PORT,
-    ssl: true
-  }
+    dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true, // This will help you. But you will see nwe error
+        rejectUnauthorized: false // This line will fix new error
+      },
+  },
+}
 );
 
 }
