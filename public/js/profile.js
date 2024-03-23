@@ -1,11 +1,13 @@
 const saveBtn = document.getElementById('saveBtn')
 const weeklyGoal = document.getElementById('goal')
+const firstName = document.getElementById('fname')
+const lastName = document.getElementById('lname')
 const form = document.querySelector("form")
 
-const putGoal = async(goalObj) => {
+const updateProfile = async(goalObj) => {
     try{
     const userId = localStorage.getItem('userId')
-    const response = await fetch(`/api/users/updategoal/${userId}`, {
+    const response = await fetch(`/api/users/updateprofile/${userId}`, {
         method: 'PUT',
         body: JSON.stringify(goalObj),
         headers: {
@@ -20,10 +22,12 @@ form.addEventListener('submit', (event) => {
 event.preventDefault()
 
 const goalObj = {
+    firstName:  firstName.value,
+    lastName: lastName.value,
     weeklyGoal: weeklyGoal.value
   }
 
-    putGoal(goalObj)
+    updateProfile(goalObj)
     console.log(goalObj)
 
 })

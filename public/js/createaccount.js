@@ -11,9 +11,13 @@ const signupFormHandler = async (event) => {
         body: JSON.stringify({ username, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
+
+      const body = await response.json()
   
       if (response.ok) {
-        document.location.replace('/');
+        alert('Account created successfully!')
+        localStorage.setItem('userId', body.user.id)
+        document.location.replace('/home')
       } else {
         alert('Failed to sign up.');
       }
