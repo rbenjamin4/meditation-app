@@ -3,11 +3,11 @@ require('dotenv').config();
 
 let sequelize
 
-if (process.env.DATABASE_URL) {
-  sequelize = new Sequelize(process.env.DATABASE_URL)
-}
+// if (process.env.DATABASE_URL) {
+//   sequelize = new Sequelize(process.env.DATABASE_URL)
+// }
 
-else {
+// else {
 
 sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -20,7 +20,7 @@ sequelize = new Sequelize(
   },
 );
 
-}
+// }
 
 // const { Client } = require('pg');
 

@@ -228,19 +228,21 @@ router.put('/updateWeeklyGoal', (req, res) => {
 });
 
 // CREATE WEEKLY GOAL
-router.put('/updategoal/:id', async (req, res) => {
+router.put('/updateprofile/:id', async (req, res) => {
   let userId = req.params.id
   console.log(userId)
 
   try {
-    const newGoal = await User.update({
+    const updateProfile = await User.update({
       weeklyGoal: req.body.weeklyGoal,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
     }, {
     where: {
       id: userId
     }
     })
-    res.status(200).json(newGoal);
+    res.status(200).json(updateProfile);
   }
   catch (err) {
     res.status(400).json(err);

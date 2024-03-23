@@ -43,7 +43,15 @@ User.init(
         weekNumber: {
             type: DataTypes.INTEGER,
             allowNull: true,
-        }
+        },
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
 },
 {
     sequelize,
