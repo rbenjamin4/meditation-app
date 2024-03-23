@@ -1,23 +1,23 @@
 <link rel="stylesheet" href="/css/profile.css">
 
-<h3>User Profile</h3>
+<h1>User Profile</h1>
 
-<div>
+<div id="user-profile">
 
-  <label for="fName">First Name</label>
-  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  <label for="fName">First Name:</label>
+  <input type="text" id="fname" name="firstname" placeholder="Enter your first name">
 
-  <label for="lName">Last Name</label>
-  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+  <label for="lName">Last Name:</label>
+  <input type="text" id="lname" name="lastname" placeholder="Enter your last name">
 
-  <label for="uName">Username</label>
-  <input type="text" id="uname" name="username" placeholder="Your username..">
+  <label for="uName">Username:</label>
+  <input type="text" id="uname" name="username" placeholder="Update your username">
 
-  <label for="email">Email</label>
-  <input type="text" id="email" name="email" placeholder="Your email..">
+  <label for="email">Email: {{user.email}}</label>
+  <input type="text" id="email" name="email" placeholder="Update your email address">
 
-  <label for="goal">Weekly Goal</label>
-  <input type="text" id="goal" name="goal" placeholder="What is your weekly goal?">
+  <label for="goal">Weekly Goal: {{user.weeklyGoal}}</label>
+  <input type="text" id="goal" name="goal" placeholder="Enter a weekly meditation goal">
 
 
   <form class="save-content" action="/update/{{updateInfo.id}}">
