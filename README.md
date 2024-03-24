@@ -2,13 +2,13 @@
 
 ## Description
 
-Quiet Soul is a meditation app, offering a library of different meditations for users to choose from. As the user listens to the meditations they choose, the apps log the amount of time they've meditated. On the profile page, the user can update and save their information, including a weekly meditation goal. The app will track the progress the user makes, comparing the amount of time they've meditated with their goal. The app also allows the user to delete their account.
+Quiet Soul is a meditation app, offering a library of different meditations for users to choose from. As the user listens to meditations, the app logs their listen time/the amount of time they've meditated. On the profile page, the user can update and save their information, including a weekly meditation goal. The app will track the progress the user makes, comparing the amount of time they've meditated with their goal. The app also allows the user to delete their account.
 
-[Deployed Website]()
+[Deployed Website](https://fathomless-garden-22238-8788b79a83a2.herokuapp.com/)
 
 ## Usage
 
-
+When the user opens the app, they can either log in to their account or create a new account. From there, they'll be directed to the home page where they'll see the progress bar displaying how much they've meditated compared to their weekly goal. They can select the list icon to be directed to the full meditations library. The user icon in the top right corner will bring them to their profile page where they can update their information, logout of their account, or delete their account.
 
 ![Screenshot]()
 
@@ -21,7 +21,3 @@ This app was made with contributions from Reed Benjamin, Casey Newman, Trent Joy
 ## License
 
 MIT License
-
-## Features
-
-If your project has a lot of features, list them here.
