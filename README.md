@@ -1,18 +1,27 @@
-# meditation-app
+# Quiet Soul Meditation App
 
-Quiet Soul Meditattion App
+## Description
 
-Description- This app provides users a chance to log in or create an account. They then have an app that gives them multiple instructors/tracks they can listen to. It also tracks the time they've spent on the app so they can meet their weekly goal. 
+Quiet Soul is a meditation app, offering a library of different meditations for users to choose from. As the user listens to the meditations they choose, the apps log the amount of time they've meditated. On the profile page, the user can update and save their information, including a weekly meditation goal. The app will track the progress the user makes, comparing the amount of time they've meditated with their goal. The app also allows the user to delete their account.
 
-Credits- This app was made with contributions from Reed Benjamin, Casey Newman, Trent Joyner and Heather Hannink. As well as advice and guidence from Instructors, tutors and other contacts.
+[Deployed Website]()
 
-Link to deployed site-
-
-link to Repository- 
-
-Screenshots-
-
-Demo-
+## Usage
 
 
 
+![Screenshot]()
+
+## Credits
+
+This app was made with contributions from Reed Benjamin, Casey Newman, Trent Joyner, and Heather Hannink, as well as advice and guidance from instructors and tutors.
+
+[Progress Bar Tutorial](https://www.youtube.com/watch?v=aXmNG2wie7I&t=0s)
+
+## License
+
+MIT License
+
+## Features
+
+If your project has a lot of features, list them here.
