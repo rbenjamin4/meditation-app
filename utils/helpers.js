@@ -4,5 +4,3 @@ function getPercentListened (timeListened, weeklyGoal) {
 
 
 module.exports = { getPercentListened }
-
-//only returns whole numbers
