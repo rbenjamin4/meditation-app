@@ -12,6 +12,17 @@ const deleteAccount = async () => {
     } else {
       alert('Failed to delete account.');
     }
+
+    const logoutResp = await fetch('/api/users/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (logoutResp.ok) {
+        document.location.replace('/');
+      } else {
+        alert('Failed to log out.');
+      }
   };
   
 deleteBtn.addEventListener('click', deleteAccount);
