@@ -10,7 +10,10 @@ Quiet Soul is a meditation app, offering a library of different meditations for 
 
 When the user opens the app, they can either log in to their account or create a new account. From there, they'll be directed to the home page where they'll see the progress bar displaying how much they've meditated compared to their weekly goal. They can select the list icon to be directed to the full meditations library. The user icon in the top right corner will bring them to their profile page where they can update their information, logout of their account, or delete their account.
 
-![Screenshot]()
+![Quiet Soul Homepage](/public/images/quiet-soul-homepage.png)
+![Quiet Soul Meditation Library](/public/images/quiet-soul-meditation-library.png)
+![Quiet Soul Login Page](/public/images/quiet-soul-login.png)
+![Quiet Soul User Profile](/public/images/quiet-soul-user-profile.png)
 
 ## Credits
 
