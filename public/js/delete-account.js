@@ -1,7 +1,8 @@
-const deleteBtn = document.querySelector('.deletebtn');
+const deleteBtn = document.querySelector('#deletebtn');
 
 const deleteAccount = async () => {
-    const response = await fetch('/api/users/delete/:id', {
+    const userId = localStorage.getItem('userId')
+    const response = await fetch(`/api/users/delete/${userId}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     });
