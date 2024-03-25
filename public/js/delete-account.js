@@ -7,7 +7,7 @@ const deleteAccount = async () => {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      alert('User account deleted!');
     } else {
       alert('Failed to delete account.');
     }
