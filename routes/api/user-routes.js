@@ -247,6 +247,7 @@ router.put('/updateprofile/:id', async (req, res) => {
     res.status(200).json(updateProfile);
   }
   catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });

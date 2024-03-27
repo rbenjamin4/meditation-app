@@ -4,7 +4,7 @@ main {
   align-items: center;
 }
 
-input[type=text], select {
+input[type=text], input[type=number], select {
     width: 100%;
     padding: 12px 20px;
     margin: 5px 0;

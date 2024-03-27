@@ -6,7 +6,8 @@ const form = document.querySelector("form")
 
 const updateProfile = async(goalObj) => {
     try{
-    const userId = localStorage.getItem('userId')
+    const userId = document.getElementById('id').value;
+    console.log(userId)
     const response = await fetch(`/api/users/updateprofile/${userId}`, {
         method: 'PUT',
         body: JSON.stringify(goalObj),
@@ -27,7 +28,7 @@ event.preventDefault()
 const goalObj = {
     firstName: firstName.value,
     lastName: lastName.value,
-    weeklyGoal: weeklyGoal.value
+    weeklyGoal: weeklyGoal.value || 0
   }
 
     updateProfile(goalObj)
