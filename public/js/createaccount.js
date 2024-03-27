@@ -16,7 +16,7 @@ const signupFormHandler = async (event) => {
   
       if (response.ok) {
         alert('Account created successfully!')
-        localStorage.setItem('userId', body.user.id)
+        // localStorage.setItem('userId', body.user.id)
         document.location.replace('/home')
       } else {
         alert('Failed to sign up.');

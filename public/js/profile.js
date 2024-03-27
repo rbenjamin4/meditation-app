@@ -13,8 +13,11 @@ const updateProfile = async(goalObj) => {
         headers: {
             'Content-Type': 'application/json',
         }
-    })
+    },
+    alert('Your profile has been updated successfully!')
+    )
 } catch (err) {
+    console.log(err)
 }
 }
 
@@ -22,12 +25,11 @@ form.addEventListener('submit', (event) => {
 event.preventDefault()
 
 const goalObj = {
-    firstName:  firstName.value,
+    firstName: firstName.value,
     lastName: lastName.value,
     weeklyGoal: weeklyGoal.value
   }
 
     updateProfile(goalObj)
     console.log(goalObj)
-
 })
