@@ -4,20 +4,22 @@
 
 <div id="user-profile">
 
-  <label for="fName">First Name: {{user.firstName}}</label>
-  <input type="text" id="fname" name="firstname" placeholder="Enter your first name">
+  <label for="fName">First Name</label>
+  <input type="text" id="fname" name="firstname" value="{{user.firstName}}" placeholder="Enter your first name">
 
-  <label for="lName">Last Name: {{user.lastName}}</label>
-  <input type="text" id="lname" name="lastname" placeholder="Enter your last name">
+  <label for="lName">Last Name</label>
+  <input type="text" id="lname" name="lastname" value="{{user.lastName}}" placeholder="Enter your last name">
 
-  <label for="uName">Username: {{user.username}}</label>
-  <input type="text" id="uname" name="username" placeholder="Update your username">
+  <label for="uName">Username</label>
+  <input type="text" id="uname" name="username" value="{{user.username}}" placeholder="Update your username">
 
-  <label for="email">Email: {{user.email}}</label>
-  <input type="text" id="email" name="email" placeholder="Update your email address">
+  <label for="email">Email</label>
+  <input type="text" id="email" name="email" value="{{user.email}}" placeholder="Update your email address">
 
-  <label for="goal">Weekly Goal: {{user.weeklyGoal}}</label>
-  <input type="text" id="goal" name="goal" placeholder="Enter a weekly meditation goal">
+  <label for="goal">Weekly Goal</label>
+  <input type="number" min="0" id="goal" name="goal" value="{{user.weeklyGoal}}">
+
+  <input type="hidden" id="id" name="id" value="{{user.id}}">
 
 
   <form class="save-content" action="/update/{{updateInfo.id}}">

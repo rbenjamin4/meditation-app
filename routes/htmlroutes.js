@@ -22,9 +22,15 @@ router.get('/player', async (req, res) => {
 router.get('/home', withAuth, async (req, res) => {
     console.log("=====HOME ROUTE========")
     try {
+        // let meditationData = await UserMeditation.findAll({
+        //     // include: [{ model: Meditation, through: UserMeditation }, { model: Instructor }],
+        //     limit: 3,
+        //     where: {
+        //         userId: req.session.userId
+        //     }
+        // });
         let meditationData = await Meditation.findAll({
             include: [{ model: Instructor }],
-            // order: [["users.user_meditation.date_time", "DESC"]],
             limit: 3,
         });
         meditationData = meditationData.map((value) => {
@@ -73,13 +79,17 @@ router.get('/profile', async (req, res) => {
     }
 });
 
-router.get('/api/meditations/:id', async (req, res) => {
+router.get('/meditations/:id', async (req, res) => {
     try {
         const meditationData = await Meditation.findByPk(req.params.id, {
             include: [{ model: Instructor }],
         });
         console.log(meditationData)
-        res.render('player', { id: req.params.id, data });
+        // await UserMeditation.create({
+        //     userId: req.session.userId,
+        //     meditationId: req.params.id,
+        // })
+        res.render('player', { id: req.params.id, data: meditationData });
     } catch (err) {
         res.status(500).json(err);
     }
