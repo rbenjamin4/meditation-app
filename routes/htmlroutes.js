@@ -69,10 +69,14 @@ router.get('/profile', async (req, res) => {
     try {
         let userData = await User.findByPk(req.session.userId);
         console.log(userData,req.session,"----PROFILE----")
-        userData = userData.get({ plain: true });
-        res.render('profile', {
-            user: userData,
-        });
+        // userData = userData.get({ plain: true });
+        if (req.session.loggedIn) {
+            res.render('profile', {
+                user: userData,
+            });
+        } else if (!req.session.loggedIn) {
+            res.redirect('/login');
+        };
     } catch (err) {
         console.log(err)
         res.status(500).json(err);
