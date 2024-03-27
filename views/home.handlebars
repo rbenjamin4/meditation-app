@@ -5,7 +5,7 @@
 <header class="marbled-bg">
 
     <div class="weekly-duration">
-        <div role="progress-bar" aria-valuenow="{{user.timeListened}}" aria-valuemin="0" aria-valuemax="{{user.weeklyGoal}}" style="--value: {{ getPercentListened user.timeListened user.weeklyGoal}};"></div>
+        <div role="progress-bar" aria-valuenow="{{userData.timeListened}}" aria-valuemin="0" aria-valuemax="{{userData.weeklyGoal}}" style="--value: {{ getPercentListened userData.timeListened userData.weeklyGoal}};"></div>
         <p style="font-size: 60px; font-weight: 800; text-align: center;"></p>
         <h1>Weekly Practice Duration</h1>
     </div>

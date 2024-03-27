@@ -34,7 +34,9 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-
+      req.session.username = dbUserData.username
+      req.session.email = dbUserData.email
+      req.session.userId = dbUserData.id
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -62,18 +64,18 @@ router.post('/login', async (req, res) => {
 
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
-    // if (!validPassword) {
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Incorrect email or password. Please try again!' });
-    //   return;
-    // }
-    const userData = dbUserData.get({plain: true});
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.userId = userData.id;
-      res
-        .status(200)
+      req.session.username = dbUserData.username
+      req.session.email = dbUserData.email
+      req.session.userId = dbUserData.id
+        res.status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
     });
   } catch (err) {
@@ -113,19 +115,19 @@ router.delete('/delete/:id', async (req, res) => {
 
 //save user info
 
-router.put('/profile/:id', (req, res) => {
-  const userInfo = req.params.id;
-  const updateInfo = req.body;
+// router.put('/profile/:id', (req, res) => {
+//   const userInfo = req.params.id;
+//   const updateInfo = req.body;
 
 
-  User.update(updateInfo, { where: { id: userId } })
-    .then(() => {
-      res.status(200).json({ message: 'User Info successfully' });
-    })
-    .catch((error) => {
-      res.status(500).json({ error: 'Error updating user info' });
-    });
-});
+//   User.update(updateInfo, { where: { id: userId } })
+//     .then(() => {
+//       res.status(200).json({ message: 'User Info successfully' });
+//     })
+//     .catch((error) => {
+//       res.status(500).json({ error: 'Error updating user info' });
+//     });
+// });
 
 
 //UPDATE TIME LISTENED PER USER
@@ -161,7 +163,7 @@ router.put('/updatelistentime/:id', async (req, res) => {
     }
 
   } catch (err){
-    console.log('Reading user failed:', dbUserData);
+    console.log('Reading user failed:', err);
   }
 
   try {
@@ -227,10 +229,10 @@ router.put('/updateWeeklyGoal', (req, res) => {
   res.status(200).send('Weekly goal updated successfully');
 });
 
-// CREATE WEEKLY GOAL
+// UPDATE PROFILE
 router.put('/updateprofile/:id', async (req, res) => {
   let userId = req.params.id
-  console.log(userId)
+  console.log('//////// USER-ID:', userId)
 
   try {
     const updateProfile = await User.update({

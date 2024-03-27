@@ -20,6 +20,7 @@ router.get('/player', async (req, res) => {
 })
 
 router.get('/home', withAuth, async (req, res) => {
+    console.log("=====HOME ROUTE========")
     try {
         let meditationData = await Meditation.findAll({
             include: [{ model: Instructor }],
@@ -35,12 +36,14 @@ router.get('/home', withAuth, async (req, res) => {
             }
         });
         userData = userData.get({ plain: true });
-        console.log(userData)
+        console.log('SESSION AND MEDITATION DATA:', meditationData, req.session)
         res.render('home', {
             meditations: meditationData,
-            user: userData,
+            userData: userData,
+            user: req.session,
         });
     } catch (err) {
+        console.log("Home route ERROR-----",err)
         res.status(500).json(err);
     }
 });
@@ -56,14 +59,16 @@ router.get('/user', async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
+    console.log("/profile",req.session)
     try {
         let userData = await User.findByPk(req.session.userId);
+        console.log(userData,req.session,"----PROFILE----")
         userData = userData.get({ plain: true });
-        console.log(userData)
         res.render('profile', {
             user: userData,
         });
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });
@@ -92,9 +97,9 @@ router.get('/trackList', async (req, res) => {
     }
 })
 
-router.get('/profile', (req, res) => {
-    res.render('profile')
-})
+// router.get('/profile', (req, res) => {
+//     res.render('profile')
+// })
 
 
 module.exports = router;
