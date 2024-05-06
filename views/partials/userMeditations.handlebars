@@ -1,0 +1,18 @@
+{{#if meditations.length}}
+{{#each meditations}}
+<article class="meditation">
+    <div class="meditation-info">
+        <h2>{{title}}</h2>
+        <p>{{instructor.name}}</p>
+        <p>{{duration}}m</p>
+    </div>
+    <button type="button" class="play-button" onclick="location.href='/meditations/{{id}}'">
+        <i class="fa fa-play-circle fa-4x"></i>
+    </button>
+</article>
+{{/each}}
+{{else}}
+<p style="color: black">No Recent Meditations</p>
+{{/if}}
+
+{{!-- figure out why it's behind background --}}

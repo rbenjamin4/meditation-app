@@ -5,7 +5,9 @@
 <header class="marbled-bg">
 
     <div class="weekly-duration">
-        <div role="progress-bar" aria-valuenow="{{userData.timeListened}}" aria-valuemin="0" aria-valuemax="{{userData.weeklyGoal}}" style="--value: {{ getPercentListened userData.timeListened userData.weeklyGoal}};"></div>
+        <div role="progress-bar" aria-valuenow="{{userData.timeListened}}" aria-valuemin="0"
+            aria-valuemax="{{userData.weeklyGoal}}"
+            style="--value: {{ getPercentListened userData.timeListened userData.weeklyGoal}};"></div>
         <p style="font-size: 60px; font-weight: 800; text-align: center;"></p>
         <h1>Weekly Practice Duration</h1>
     </div>
@@ -17,18 +19,7 @@
 
 <section class="recent-meditations">
     <p class="recently-played">Recently Played</p>
-    {{#each meditations}}
-    <article class="meditation">
-        <div class="meditation-info">
-            <h2>{{title}}</h2>
-            <p>{{instructor.name}}</p>
-            <p>{{duration}}m</p>
-        </div>
-        <button type="button" class="play-button" onclick="location.href='/meditations/{{id}}'">
-            <i class="fa fa-play-circle fa-4x"></i>
-        </button>
-    </article>
-    {{/each}}
+    {{> userMeditations}}
 </section>
 
 <style>

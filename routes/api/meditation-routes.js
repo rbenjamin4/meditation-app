@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Meditation, Instructor } = require('../../models');
+const { Meditation, Instructor, UserMeditation } = require('../../models');
 
 // the `/meditations` endpoint
 
@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
             include: [{ model: Instructor }],
         });
         res.render('all-meditations', { data: meditationData });
-        console.log(meditationData)
     } catch (err) {
         res.status(500).json(err);
     }
@@ -17,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const meditationData = await Meditation.findByPk(req.params.id, { 
+        let meditationData = await Meditation.findByPk(req.params.id, { 
             include: [{ model: Instructor }],
         });
 
@@ -25,7 +24,11 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: 'No meditation found with that ID!' });
             return;
         }
-
+        UserMeditation.create({
+            userId: req.session.userId,
+            meditationId: req.params.id,
+        })
+        meditationData = meditationData.get({plain: true})
         res.render('player', { data: meditationData });
         console.log(meditationData)
 
