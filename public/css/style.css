@@ -118,6 +118,11 @@ article {
     background-size: 100%;
 }
 
+.recent-meditations p {
+    position: relative;
+    padding: 10px;
+}
+
 .recently-played {
     position: relative;
     z-index: 1;
