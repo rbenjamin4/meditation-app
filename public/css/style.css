@@ -156,13 +156,14 @@ i.fa-play-circle {
 }
 
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 450px) {
     .weekly-duration {
         padding-bottom: 80px;
     }
 
     .recent-meditations::before {
-        top: -190px;
+        top: -170px;
+        /* top: -190px; */
     }
 
     .meditation-info {
