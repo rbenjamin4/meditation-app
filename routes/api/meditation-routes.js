@@ -5,7 +5,7 @@ const { Meditation, Instructor, UserMeditation } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        const meditationData = await Meditation.findAll({ 
+        const meditationData = await Meditation.findAll({
             include: [{ model: Instructor }],
         });
         res.render('all-meditations', { data: meditationData });
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        let meditationData = await Meditation.findByPk(req.params.id, { 
+        let meditationData = await Meditation.findByPk(req.params.id, {
             include: [{ model: Instructor }],
         });
 
@@ -24,13 +24,24 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: 'No meditation found with that ID!' });
             return;
         }
-        UserMeditation.create({
-            userId: req.session.userId,
-            meditationId: req.params.id,
-        })
-        meditationData = meditationData.get({plain: true})
+
+        const existingRecord = await UserMeditation.findOne({
+            where: {
+                userId: req.session.userId,
+                meditationId: req.params.id
+            }
+        });
+
+        if (!existingRecord) {
+            await UserMeditation.create({
+                userId: req.session.userId,
+                meditationId: req.params.id,
+            });
+        }
+
+        meditationData = meditationData.get({ plain: true })
         res.render('player', { data: meditationData });
-        console.log(meditationData)
+        console.log('MEDITATION DATA/////', meditationData)
 
     } catch (err) {
         res.status(500).json(err);
