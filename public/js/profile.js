@@ -3,11 +3,14 @@ const weeklyGoal = document.getElementById('goal')
 const firstName = document.getElementById('fname')
 const lastName = document.getElementById('lname')
 const form = document.querySelector("form")
+const userId = document.getElementById('id').value;
+
 
 const updateProfile = async(goalObj) => {
     try{
-    const userId = document.getElementById('id').value;
-    console.log(userId)
+    // const userId = document.getElementById('id').value;
+    console.log('GETELEM', document.getElementById('id').value)
+    console.log('USERID', userId)
     const response = await fetch(`/api/users/updateprofile/${userId}`, {
         method: 'PUT',
         body: JSON.stringify(goalObj),

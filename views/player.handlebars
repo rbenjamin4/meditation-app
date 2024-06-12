@@ -3,10 +3,10 @@
         <div class="details">
             <div class="player-logo-container">
                 <img class='yoga-circle' src="/images/yogaCircle.svg" alt="blank circle">
-                <div class="track-name">{{data.dataValues.title}}</div>
+                <div class="track-name">{{data.title}}</div>
             </div>
 
-            <div class="track-instructor">{{data.instructor.dataValues.name}}</div>
+            <div class="track-instructor">{{data.instructor.name}}</div>
         </div>
 
         <div class="slider_container">
@@ -25,7 +25,7 @@
             <div class="prev-track" onclick="prevTrack()">
                 <i class="fa fa-solid fa-step-backward fa-4x"></i>
             </div>
-            <div id="play-button" class="playpause-track" data-file-path="/audio/{{data.dataValues.fileName}}" onclick="playpauseTrack()">
+            <div id="play-button" class="playpause-track" data-file-path="/audio/{{data.fileName}}" onclick="playpauseTrack()">
                 <i class="fa fa-play-circle fa-5x"></i>
             </div>
             <div id="next-track-id" class="next-track" onclick="nextTrack()">

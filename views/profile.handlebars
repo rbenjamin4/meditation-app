@@ -5,21 +5,21 @@
 <div id="user-profile">
 
   <label for="fName">First Name</label>
-  <input type="text" id="fname" name="firstname" value="{{user.firstName}}" placeholder="Enter your first name">
+  <input type="text" id="fname" name="firstname" value="{{user.dataValues.firstName}}" placeholder="Enter your first name">
 
   <label for="lName">Last Name</label>
-  <input type="text" id="lname" name="lastname" value="{{user.lastName}}" placeholder="Enter your last name">
+  <input type="text" id="lname" name="lastname" value="{{user.dataValues.lastName}}" placeholder="Enter your last name">
 
   <label for="uName">Username</label>
-  <input type="text" id="uname" name="username" value="{{user.username}}" placeholder="Update your username">
+  <input type="text" id="uname" name="username" value="{{user.dataValues.username}}" placeholder="Update your username">
 
   <label for="email">Email</label>
-  <input type="text" id="email" name="email" value="{{user.email}}" placeholder="Update your email address">
+  <input type="text" id="email" name="email" value="{{user.dataValues.email}}" placeholder="Update your email address">
 
   <label for="goal">Weekly Goal</label>
-  <input type="number" min="0" id="goal" name="goal" value="{{user.weeklyGoal}}">
+  <input type="number" min="0" id="goal" name="goal" value="{{user.dataValues.weeklyGoal}}">
 
-  <input type="hidden" id="id" name="id" value="{{user.id}}">
+  <input type="hidden" id="id" name="id" value="{{user.dataValues.id}}">
 
 
   <form class="save-content" action="/update/{{updateInfo.id}}">
