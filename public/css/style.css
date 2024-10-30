@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #F8F3F3;
+}
+
 body {
     font-family: 'Mukta Vaani', Arial, Helvetica, sans-serif;
     background-color: #F8F3F3;
@@ -118,6 +122,11 @@ article {
     background-size: 100%;
 }
 
+.recent-meditations p {
+    position: relative;
+    padding: 10px;
+}
+
 .recently-played {
     position: relative;
     z-index: 1;
@@ -147,13 +156,14 @@ i.fa-play-circle {
 }
 
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 450px) {
     .weekly-duration {
         padding-bottom: 80px;
     }
 
     .recent-meditations::before {
-        top: -190px;
+        top: -170px;
+        /* top: -190px; */
     }
 
     .meditation-info {
